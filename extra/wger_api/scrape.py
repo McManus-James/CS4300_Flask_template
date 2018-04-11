@@ -11,7 +11,7 @@ headers = {'Accept': 'application/json', 'Authorization': 'Token 694bf3e087521de
 # Get first page
 r = requests.get(url, auth=('fmoheed', 'password'), params=data, headers=headers)
 page_count = 1
-with open('data/data_page_' + str(page_count) + '.text', 'w') as f:
+with open('wger_data/data_page_' + str(page_count) + '.text', 'w') as f:
 	f.write(pprint.pformat(r.json()))
 f.close()
 
@@ -23,6 +23,6 @@ while r.json()['next'] != None:
 	url = r.json()['next']
 	r = requests.get(url, auth=('fmoheed', 'password'), params=data, headers=headers)
 
-	with open('data/data_page_' + str(page_count) + '.txt', 'w') as f:
+	with open('wger_data/data_page_' + str(page_count) + '.txt', 'w') as f:
 		f.write(pprint.pformat(r.json()))
 	f.close()

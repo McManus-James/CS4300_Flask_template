@@ -30,3 +30,7 @@ socketio.init_app(app)
 @app.errorhandler(404)
 def not_found(error):
   return render_template("404.html"), 404
+
+@app.route('/advanced', methods=['GET'])
+def advanced():
+  return render_template("advanced.html")

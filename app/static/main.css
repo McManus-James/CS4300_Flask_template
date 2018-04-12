@@ -13,8 +13,13 @@ padding-top: 15%;
 padding-bottom: 15px;
 }
 .global-search {
-text-align:center;
+/*text-align:center;*/
 padding:10px;
+}
+.advanced-search {
+text-align: center;
+width:500px;
+margin: auto;
 }
 .global-search .form-control {
 width:500px;
@@ -24,10 +29,9 @@ display:inline-block;
 margin-bottom:0;
 }
 }
-.topcorner{
-position:absolute;
-top:2%;
-right:2%;
+.search-link{
+display: block;
+text-align: center;
 }
 .btn{
 background-color: #4285F4;

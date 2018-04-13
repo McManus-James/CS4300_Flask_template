@@ -16,7 +16,3 @@ def search():
 		output_message = "Your search: " + query
 		data = Exercise.get_exercises(name = query)
 	return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
-
-@irsystem.route('/advanced', methods=['GET'])
-def advanced():
-  return 'Hello'

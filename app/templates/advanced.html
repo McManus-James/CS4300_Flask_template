@@ -16,12 +16,20 @@
             </div>
             <div class="form-group">
                 <select name="muscles" >
-                  <option value="placeholder">group1</option>
+                    {% if muscles %}
+                        {% for m in muscles %}
+                            <option value="{{m}}">{{m}}</option>
+                        {% endfor %}
+                    {% endif %}
                 </select>
             </div>
             <div class="form-group">
                 <select name="equipment" >
-                  <option value="placeholder">equipment1</option>
+                  {% if equipment %}
+                        {% for e in equipment %}
+                            <option value="{{e}}">{{e}}</option>
+                        {% endfor %}
+                    {% endif %}
                 </select>
             </div>
             <div class="form-group">

@@ -4,6 +4,7 @@ monkey.patch_all()
 
 # Imports
 import os
+import json
 from flask import Flask, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_socketio import SocketIO
@@ -26,6 +27,16 @@ app.register_blueprint(irsystem)
 # Initialize app w/SocketIO
 socketio.init_app(app)
 
+datajson = json.load(open('././extra/jefit/data.json'))
+data = datajson.values()
+muscles = []
+equipment = []
+for exercise in data:
+  for m in exercise['muscles']:
+    muscles.append(m)
+  for e in exercise['equipment']:
+    equipment.append(e)
+
 # HTTP error handling
 @app.errorhandler(404)
 def not_found(error):
@@ -33,4 +44,4 @@ def not_found(error):
 
 @app.route('/advanced', methods=['GET'])
 def advanced():
-  return render_template("advanced.html")
+  return render_template("advanced.html", muscles=sorted(set(muscles)), equipment=sorted(set(equipment)))

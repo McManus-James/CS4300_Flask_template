@@ -45,40 +45,40 @@ desc_tfidf = pickle.load(f)
 app.config['desc_tfidf'] = desc_tfidf
 f.close()
 
-# f = open('extra/pickles/equipment_tfidf','rb')
-# equip_tfidf = pickle.load(f)
-# app.config['equip_tfidf'] = equip_tfidf
-# f.close()
+f = open('extra/pickles/equipment_tfidf','rb')
+equip_tfidf = pickle.load(f)
+app.config['equip_tfidf'] = equip_tfidf
+f.close()
 
-# f = open('extra/pickles/muscles_tfidf','rb')
-# muscles_tfidf = pickle.load(f)
-# app.config['muscles_tfidf'] = muscles_tfidf
-# f.close()
+f = open('extra/pickles/muscles_tfidf','rb')
+muscles_tfidf = pickle.load(f)
+app.config['muscles_tfidf'] = muscles_tfidf
+f.close()
 
-# f = open('extra/pickles/name_tfidf','rb')
-# name_tfidf = pickle.load(f)
-# app.config['name_tfidf'] = name_tfidf
-# f.close()
+f = open('extra/pickles/name_tfidf','rb')
+name_tfidf = pickle.load(f)
+app.config['name_tfidf'] = name_tfidf
+f.close()
 
 f = open('extra/pickles/description_vocab_to_index','rb')
 description_vocab_to_index = pickle.load(f)
 app.config['description_vocab_to_index'] = description_vocab_to_index
 f.close()
 
-# f = open('extra/pickles/equipment_vocab_to_index','rb')
-# equipment_vocab_to_index = pickle.load(f)
-# app.config['equipment_vocab_to_index'] = equipment_vocab_to_index
-# f.close()
+f = open('extra/pickles/equipment_vocab_to_index','rb')
+equipment_vocab_to_index = pickle.load(f)
+app.config['equipment_vocab_to_index'] = equipment_vocab_to_index
+f.close()
 
-# f = open('extra/pickles/muscles_vocab_to_index','rb')
-# muscles_vocab_to_index = pickle.load(f)
-# app.config['muscles_vocab_to_index'] = muscles_vocab_to_index
-# f.close()
+f = open('extra/pickles/muscles_vocab_to_index','rb')
+muscles_vocab_to_index = pickle.load(f)
+app.config['muscles_vocab_to_index'] = muscles_vocab_to_index
+f.close()
 
-# f = open('extra/pickles/name_vocab_to_index','rb')
-# name_vocab_to_index = pickle.load(f)
-# app.config['name_vocab_to_index'] = name_vocab_to_index
-# f.close()
+f = open('extra/pickles/name_vocab_to_index','rb')
+name_vocab_to_index = pickle.load(f)
+app.config['name_vocab_to_index'] = name_vocab_to_index
+f.close()
 
 f = open('extra/pickles/vector_index_to_exercise','rb')
 vector_index_to_exercise = pickle.load(f)

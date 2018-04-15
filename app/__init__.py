@@ -42,6 +42,7 @@ for exercise in data:
 # Load pickle files
 f = open('extra/pickles/description_tfidf','rb')
 desc_tfidf = pickle.load(f)
+print(desc_tfidf.shape)
 app.config['desc_tfidf'] = desc_tfidf
 f.close()
 

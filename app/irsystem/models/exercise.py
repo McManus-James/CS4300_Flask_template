@@ -65,6 +65,6 @@ class Exercise:
 		for i in range(10):	
 			index = app.config['vector_index_to_exercise'][int(sorted_ind[i])]
 			entry = app.config['raw_data'][index]
-			result.append(entry['name'])
+			result.append(entry)
 
 		return result

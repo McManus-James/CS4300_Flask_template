@@ -23,17 +23,12 @@ class Exercise:
 
 	@classmethod
 	def simple_search(self, query, desc_w=.25, equip_w=.25, musc_w=.25, name_w=.25):
-		# print app.config['desc_tfidf'].shape
-		# print app.config['equip_tfidf'].shape
-		# print app.config['muscles_tfidf'].shape
-		# print app.config['name_tfidf'].shape
-		# print len(app.config['description_vocab_to_index'])
-		# print len(app.config['equipment_vocab_to_index'])
-		# print len(app.config['muscles_vocab_to_index'])
-		# print len(app.config['name_vocab_to_index'])
-		# print len(app.config['vector_index_to_exercise'])
-		dics = [app.config['description_vocab_to_index'], app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
-		tf_idfs = [app.config['desc_tfidf'], app.config['equip_tfidf'], app.config['muscles_tfidf'], app.config['name_tfidf']]
+		# dics = [app.config['description_vocab_to_index'], app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
+		# tf_idfs = [app.config['desc_tfidf'], app.config['equip_tfidf'], app.config['muscles_tfidf'], app.config['name_tfidf']]
+
+		dics = [app.config['description_vocab_to_index']]
+		tf_idfs = [app.config['desc_tfidf']]
+
 		query_tokens = nltk.word_tokenize(query)
 		query_vecs = []
 		for dic in dics:
@@ -58,7 +53,9 @@ class Exercise:
 		for i in range(len(tf_idfs)):
 			sim_matrices.append(np.dot(tf_idfs[i], query_vecs[i].T)) 
 
-		weighted_sim = (desc_w*sim_matrices[0] + equip_w*sim_matrices[1] + musc_w*sim_matrices[2] + name_w*sim_matrices[3])
+		# weighted_sim = (desc_w*sim_matrices[0] + equip_w*sim_matrices[1] + musc_w*sim_matrices[2] + name_w*sim_matrices[3])
+
+		weighted_sim = (1*sim_matrices[0])
 		sorted_ind = np.argsort(weighted_sim, axis=0)[::-1]
 
 		result = []

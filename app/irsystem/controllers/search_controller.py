@@ -6,7 +6,7 @@ from app.irsystem.models.exercise import Exercise
 project_name = "Exercise Planner"
 net_id = "James McManus: jjm439, Kristian Langholm: krl38, Faadhil Moheed: fm363, Darien Lin: dl724, Jatin Bharwani: jsb399"
 
-@irsystem.route('/search', methods=['GET'])
+@irsystem.route('/', methods=['GET'])
 def search():
 	query = request.args.get('search')
 	if not query:

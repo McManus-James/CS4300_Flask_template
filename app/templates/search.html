@@ -21,15 +21,17 @@
         <a class="search-link" href="{{ url_for('advanced') }}">advanced search </a>
         <form class="form-inline global-search">
             <div class="form-group">
-                <h1>{{output_message}}</h1>
-                <br>
-                <select id="exercise" name="exercise" >
-                    {% if data %}
-                        {% for d in data %}
-                            <option value="{{loop.index}}">{{d['name']}}</option>
-                        {% endfor %}
-                    {% endif %}
-                </select>
+                {% if output_message %}
+                    <h1>{{output_message}}</h1>
+                    <br>
+                    <select id="exercise" name="exercise" >
+                        {% if data %}
+                            {% for d in data %}
+                                <option value="{{loop.index}}">{{d['name']}}</option>
+                            {% endfor %}
+                        {% endif %}
+                    </select>
+                {% endif %}
             </div>
         </form>
         {% if data %}

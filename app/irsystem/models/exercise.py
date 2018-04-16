@@ -34,6 +34,8 @@ class Exercise:
 				if t in dic: 
 					q_vec[dic[t]] += 1.0
 			query_vecs.append(q_vec)
+
+		print("HERHERHEHRHE: {}".format(query_tokens))
 		
 		for i in range(len(tf_idfs)):
 			cpy = np.copy(tf_idfs[i])

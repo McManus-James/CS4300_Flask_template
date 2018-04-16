@@ -14,6 +14,7 @@ class Exercise:
 	#for matches. Advanced search searches each parameter individually and
 	#returns exercises which match each criteria (intersection). Routine
 	#determines whether to return individual exercises or a routine
+	# comment
 	def get_exercises(self, name = None, muscles = None, equipment = None, routine = None):
 
 		if True:			#Place Holder for simple search check 

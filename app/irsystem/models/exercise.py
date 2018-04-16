@@ -35,8 +35,6 @@ class Exercise:
 				if t in dic: 
 					q_vec[dic[t]] += 1.0
 			query_vecs.append(q_vec)
-
-		print("HERHERHEHRHE: {}".format(query_tokens))
 		
 		for i in range(len(tf_idfs)):
 			cpy = np.copy(tf_idfs[i])
@@ -57,7 +55,7 @@ class Exercise:
 		sorted_ind = np.argsort(weighted_sim, axis=0)[::-1]
 
 		result = []
-		for i in range(10):	
+		for i in range(5):	
 			index = app.config['vector_index_to_exercise'][int(sorted_ind[i])]
 			entry = app.config['raw_data'][index]
 			result.append(entry)

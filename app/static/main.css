@@ -31,17 +31,19 @@ border: none
 color: #4285F4;
 }
 
-.output {
-  height: 300px;
-  margin-left: 5%;
-  margin-right: 5%;
+/*Exercise Planner Heading*/
+#heading {
+	font-size: 55px; 
+	font-family:Futura; 
+	color: #4285F4;
 }
 
-.images {
-  height: 100%;
-  margin-left: -5%;
+/*Images*/
+.exercises {
+  width: 250px;
+  height: 250px;
 }
 
-img {
-  width: 49%;
+h2, h4 {
+	font-weight: bolder;
 }

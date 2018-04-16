@@ -1,13 +1,14 @@
 <html>
     <head>
-        <link rel="stylesheet" href="/static/bootstrap.min.css">
-        <link rel="stylesheet" href="/static/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        <script src="/static/main.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="/static/main.css">
     </head>
+
     <body>
         <form class="form-inline global-search">
-            <h1 style="font-size: 55px; font-family:Futura; color: #4285F4">
+            <h1 id="heading">
                 Exercise Planner
             </h1>
 
@@ -24,30 +25,23 @@
                 {% if output_message %}
                     <h1>{{output_message}}</h1>
                     <br>
-                    <select id="exercise" name="exercise" >
-                        {% if data %}
-                            {% for d in data %}
-                                <option value="{{loop.index}}">{{d['name']}}</option>
-                            {% endfor %}
-                        {% endif %}
-                    </select>
                 {% endif %}
             </div>
         </form>
+
+        <div class="container">
         {% if data %}
             {% for d in data %}
-                <div id="output{{loop.index}}" class="output row">
-                    <div class="col-sm-6">
-                        <h2>{{d['name']}}</h2>
+                <div id="output{{loop.index}}" class="row justify-content-lg-center">
+                    <h2>{{d['name']}}</h2>
+                    <div class="col-lg-6">
                         {% if d['image'] %}
-                            <div class="images">
-                                {% for i in d['image'] %}
-                                    <img src="{{i}}">
-                                {% endfor %}
-                            </div>
+                            {% for i in d['image'] %}
+                                <img class="exercises" src="{{i}}">
+                            {% endfor %}
                         {% endif %}
                     </div>
-                    <div class="col-sm-6">
+                    <div class="col-lg-6">
                         {% if d['muscles'] %}
                             <h4>Muscle Groups</h4>
                             {% for m in d['muscles'] %}
@@ -68,6 +62,7 @@
                 </div>
             {% endfor %}
         {% endif %}
+        </div>
     </body>
 
 </html>

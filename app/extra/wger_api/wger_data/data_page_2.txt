@@ -1,0 +1,406 @@
+{'count': 199,
+ 'next': 'https://wger.de/api/v2/exercise/?key=value&key=value&language=2&ordering=id&page=3&status=2',
+ 'previous': 'https://wger.de/api/v2/exercise/?key=value&key=value&language=2&ordering=id&status=2',
+ 'results': [{'category': 11,
+              'creation_date': None,
+              'description': '<p>Lay down on a decline bench, the bar should '
+                             'be directly above your eyes, the knees are '
+                             'somewhat angled and the feet are firmly on the '
+                             'floor. Concentrate, breath deeply and grab the '
+                             'bar more than shoulder wide. Bring it slowly '
+                             'down till it briefly touches your chest at the '
+                             'height of your nipples. Push the bar up.</p>',
+              'equipment': [1],
+              'id': 100,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [4],
+              'muscles_secondary': [],
+              'name': 'Decline Bench Press Barbell',
+              'name_original': 'Decline bench press barbell',
+              'status': '2',
+              'uuid': 'b72ae8d4-ede6-4480-8fc5-7b80e369f7ed'},
+             {'category': 11,
+              'creation_date': None,
+              'description': '<p>Take two dumbbells and sit on a decline '
+                             'bench, the feet are firmly on the floor, the '
+                             'head is resting the bench. Hold the weights next '
+                             'to the chest, at the height of your nipples and '
+                             'press them up till the arms are stretched. Let '
+                             'the weight slowly and controlled down.</p>',
+              'equipment': [3],
+              'id': 101,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [4],
+              'muscles_secondary': [],
+              'name': 'Decline Bench Press Dumbbell',
+              'name_original': 'Decline bench press dumbbell',
+              'status': '2',
+              'uuid': '80d318b3-4b8a-41aa-9c6c-0a2a921fe1e6'},
+             {'category': 14,
+              'creation_date': None,
+              'description': '<p>Get onto the calf raises machine, you should '
+                             'able to completely push your calves down. Stand '
+                             "straight, don't make a hollow back and don't "
+                             'bend your legs. Pull yourself up as high as you '
+                             'can. Make a small pause of 1 - 2 seconds and go '
+                             'slowly down.</p>',
+              'equipment': [],
+              'id': 102,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [7],
+              'muscles_secondary': [15],
+              'name': 'Standing Calf Raises',
+              'name_original': 'Standing calf raises',
+              'status': '2',
+              'uuid': 'abc4c62e-27b2-4c31-8766-40f8dca84cab'},
+             {'category': 14,
+              'creation_date': None,
+              'description': '<p>Sit on a bench for calf raises and check that '
+                             'the feet are half free and that you can '
+                             'completely stretch the calf muscles down. Pull '
+                             'your calves up, going as far (up) as you can. '
+                             'Make at the highest point a short pause of 1 or '
+                             '2 seconds and go down.</p>',
+              'equipment': [],
+              'id': 103,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [15],
+              'muscles_secondary': [7],
+              'name': 'Sitting Calf Raises',
+              'name_original': 'Sitting calf raises',
+              'status': '2',
+              'uuid': '399666e7-30a7-4b86-833d-4422e4c72b61'},
+             {'category': 14,
+              'creation_date': None,
+              'description': '<p>Place yourself on the machine with your back '
+                             'firmly against the backrest, the feet are on the '
+                             'platform for calf raises. Check that the feet '
+                             'are half free and that you can completely '
+                             'stretch the calf muscles down.</p>\n'
+                             '<p>With straight knees pull up your weight as '
+                             'much as you can. Go with a fluid movement down '
+                             'till the calves are completely stretched. '
+                             'Repeat.</p>',
+              'equipment': [],
+              'id': 104,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [7],
+              'muscles_secondary': [15],
+              'name': 'Calf Raises on Hackenschmitt Machine',
+              'name_original': 'Calf raises on Hackenschmitt machine',
+              'status': '2',
+              'uuid': 'e7677699-5e4f-49e6-a645-e8915a203c4d'},
+             {'category': 12,
+              'creation_date': None,
+              'description': '<p>Stand firmly, with your feet slightly more '
+                             'than shoulder wide apart. Stand directly behind '
+                             'the bar where it should barely touch your shin, '
+                             'your feet pointing a bit out. Bend down with a '
+                             'straight back, the knees also pointing somewhat '
+                             'out. Grab the bar with a shoulder wide grip, one '
+                             'underhand, one reverse grip.</p>\n'
+                             '<p>Pull the weight up. At the highest point make '
+                             'a slight hollow back and pull the bar back. Hold '
+                             '1 or 2 seconds that position. Go down, making '
+                             'sure the back is not bent. Once down you can '
+                             'either go back again as soon as the weights '
+                             'touch the floor, or make a pause, depending on '
+                             'the weight.</p>',
+              'equipment': [1],
+              'id': 105,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [12, 10],
+              'muscles_secondary': [8],
+              'name': 'Deadlifts',
+              'name_original': 'Deadlifts',
+              'status': '2',
+              'uuid': '22cca8fc-cfaf-4941-b0f7-faf9f2937c52'},
+             {'category': 12,
+              'creation_date': None,
+              'description': '<p>The execution of this exercise is very '
+                             'similar to the regular bent over rowing, only '
+                             'that the bar is fixed here.</p>\n'
+                             '<p>Grab the barbell with a wide grip (slightly '
+                             'more than shoulder wide) and lean forward. Your '
+                             'upper body is not quite parallel to the floor, '
+                             "but forms a slight angle. The chest's out during "
+                             'the whole exercise. Pull now the barbell with a '
+                             'fast movement towards your belly button, not '
+                             'further up. Go slowly down to the initial '
+                             "position. Don't swing with your body and keep "
+                             'your arms next to your body.</p>',
+              'equipment': [],
+              'id': 106,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [12],
+              'muscles_secondary': [2, 1, 13],
+              'name': 'Rowing, T-bar',
+              'name_original': 'Rowing, T-bar',
+              'status': '2',
+              'uuid': '3c3f23b5-b523-4a69-8c79-1106a4ce9b6d'},
+             {'category': 12,
+              'creation_date': None,
+              'description': '<p>Grab the pull up bar with a wide grip, the '
+                             'body is hanging freely. Keep your chest out and '
+                             'pull yourself up till your chin reaches the bar '
+                             'or it touches your neck, if you want to pull '
+                             'behind you. Go with a slow and controlled '
+                             'movement down, always keeping the chest out.</p>',
+              'equipment': [6],
+              'id': 107,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [12],
+              'muscles_secondary': [2, 1, 9],
+              'name': 'Pull-ups',
+              'name_original': 'Pull-ups',
+              'status': '2',
+              'uuid': '7ce6b090-5099-4cd0-83ae-1a02725c868b'},
+             {'category': 12,
+              'creation_date': None,
+              'description': '',
+              'equipment': [],
+              'id': 108,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [12],
+              'muscles_secondary': [],
+              'name': 'Rowing, Seated',
+              'name_original': 'Rowing, seated',
+              'status': '2',
+              'uuid': '57747eb3-411a-4efd-8842-a45e562320ee'},
+             {'category': 12,
+              'creation_date': None,
+              'description': '<p>Grab the barbell with a wide grip (slightly '
+                             'more than shoulder wide) and lean forward. Your '
+                             'upper body is not quite parallel to the floor, '
+                             "but forms a slight angle. The chest's out during "
+                             'the whole exercise.</p>\n'
+                             '<p>Pull now the barbell with a fast movement '
+                             'towards your belly button, not further up. Go '
+                             "slowly down to the initial position. Don't swing "
+                             'with your body and keep your arms next to your '
+                             'body.</p>',
+              'equipment': [1],
+              'id': 109,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [12],
+              'muscles_secondary': [2, 1],
+              'name': 'Bent Over Rowing',
+              'name_original': 'Bent over rowing',
+              'status': '2',
+              'uuid': 'f82c579e-c069-4dc7-8e36-a3266dfd8e4a'},
+             {'category': 12,
+              'creation_date': None,
+              'description': '<p>The same as <em>regular</em> rowing, but '
+                             'holding a reversed grip (your palms pointing '
+                             'forwards):</p>\n'
+                             '<p>Grab the barbell with a wide grIp (slightly '
+                             'more than shoulder wide) and lean forward. Your '
+                             'upper body is not quite parallel to the floor, '
+                             "but forms a slight angle. The chest's out during "
+                             'the whole exercise.</p>\n'
+                             '<p>Pull now the barbell with a fast movement '
+                             'towards your belly button, not further up. Go '
+                             "slowly down to the initial position. Don't swing "
+                             'with your body and keep your arms next to your '
+                             'body.</p>',
+              'equipment': [1],
+              'id': 110,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [12],
+              'muscles_secondary': [2, 1],
+              'name': 'Bent Over Rowing Reverse',
+              'name_original': 'Bent over rowing reverse',
+              'status': '2',
+              'uuid': '77688310-f2cf-4d37-a854-dca906387be7'},
+             {'category': 9,
+              'creation_date': None,
+              'description': '<p>Make sure you have put the barbell at a '
+                             'height where you can comfortably take it out and '
+                             'put it back in. Take it out and make yourself '
+                             'ready:</p>\n'
+                             '<ul>\n'
+                             '<li>The bar is somewhat lower than your '
+                             'shoulders</li>\n'
+                             '<li>The feet are quite apart and point out</li>\n'
+                             '<li>The head is in your neck and looks up</li>\n'
+                             '<li>The chest is out</li>\n'
+                             '</ul>\n'
+                             '<p>Go now slowly down, till your thighs are '
+                             'parallel with the floor, not lower. The knees '
+                             'point outwards, your butt, out. Make a small '
+                             'pause of 1 second and with as much energy as you '
+                             'can, push the weight up. Make a pause of 2 '
+                             'seconds and repeat.</p>',
+              'equipment': [1],
+              'id': 111,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [10],
+              'muscles_secondary': [8],
+              'name': 'Squats',
+              'name_original': 'Squats',
+              'status': '2',
+              'uuid': 'c4856da3-8454-4857-8997-336d06df590f'},
+             {'category': 9,
+              'creation_date': None,
+              'description': '<p>.</p>',
+              'equipment': [3],
+              'id': 112,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [10],
+              'muscles_secondary': [8],
+              'name': 'Dumbbell Lunges Standing',
+              'name_original': 'Dumbbell lunges standing',
+              'status': '2',
+              'uuid': '587c0052-f2bc-48ca-8af9-415175308901'},
+             {'category': 9,
+              'creation_date': None,
+              'description': '<p>Take two dumbbells in your hands, stand '
+                             'straight, feet about shoulder wide. Take one '
+                             'long step so that the front knee is '
+                             'approximately forming a right angle. The back '
+                             "leg is streched, the knee is low but doesn't "
+                             'touch the ground. "Complete" the step by '
+                             'standing up and repeat the movement with the '
+                             'other leg.</p>',
+              'equipment': [3],
+              'id': 113,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [10],
+              'muscles_secondary': [8],
+              'name': 'Dumbbell Lunges Walking',
+              'name_original': 'Dumbbell lunges walking',
+              'status': '2',
+              'uuid': 'ffd4ce7e-e14f-49d4-9dc9-dc1362631382'},
+             {'category': 9,
+              'creation_date': None,
+              'description': '<p>Sit on the machine and put your feet on the '
+                             'platform, a bit more than shoulder wide. The '
+                             'feet are turned outwards by a few degrees.</p>\n'
+                             '<p>Lower the weight so much, that the knees form '
+                             'a right angle. Push immediately the platform up '
+                             'again, without any pause. When in the lower '
+                             'position, the knees point a bit outwards and the '
+                             'movement should be always fluid.</p>',
+              'equipment': [],
+              'id': 114,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [10],
+              'muscles_secondary': [8],
+              'name': 'Leg Presses (wide)',
+              'name_original': 'Leg presses (wide)',
+              'status': '2',
+              'uuid': '3caed096-c65e-434d-9792-33db636743e7'},
+             {'category': 9,
+              'creation_date': None,
+              'description': '<p>The exercise is very similar to the wide leg '
+                             'press:</p>\n'
+                             '<p>Sit on the machine and put your feet on the '
+                             'platform so far apart\xa0 that you could just '
+                             'put another foot in between them. The feet are '
+                             'parallel and point up.</p>\n'
+                             '<p>Lower the weight so much, that the knees form '
+                             'a right angle. Push immediately the platform up '
+                             'again, without any pause. When in the lower '
+                             'position, the knees point a bit outwards and the '
+                             'movement should be always fluid.</p>',
+              'equipment': [],
+              'id': 115,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [10],
+              'muscles_secondary': [8],
+              'name': 'Leg Presses (narrow)',
+              'name_original': 'Leg presses (narrow)',
+              'status': '2',
+              'uuid': '560e1a20-33e1-45db-ba5b-63f8c51af76d'},
+             {'category': 9,
+              'creation_date': None,
+              'description': '',
+              'equipment': [],
+              'id': 116,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [11],
+              'muscles_secondary': [],
+              'name': 'Good Mornings',
+              'name_original': 'Good mornings',
+              'status': '2',
+              'uuid': '6e862700-3d63-486c-99ae-744c68d2f753'},
+             {'category': 9,
+              'creation_date': None,
+              'description': '',
+              'equipment': [],
+              'id': 117,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [11],
+              'muscles_secondary': [],
+              'name': 'Leg Curls (sitting)',
+              'name_original': 'Leg curls (sitting)',
+              'status': '2',
+              'uuid': '61950a59-be4e-43cc-abc1-cb52abd15354'},
+             {'category': 9,
+              'creation_date': None,
+              'description': '',
+              'equipment': [],
+              'id': 118,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [11],
+              'muscles_secondary': [],
+              'name': 'Leg Curls (standing)',
+              'name_original': 'Leg curls (standing)',
+              'status': '2',
+              'uuid': '89c98117-dd53-4334-bfa6-72a96525629a'},
+             {'category': 13,
+              'creation_date': None,
+              'description': '<p>Sit on a bench, the back rest should be '
+                             'almost vertical. Take a barbell with a shoulder '
+                             'wide grip and bring it up to chest height. Press '
+                             "the weight up, but don't stretch the arms "
+                             'completely. Go slowly down and repeat.</p>',
+              'equipment': [1],
+              'id': 119,
+              'language': 2,
+              'license': 1,
+              'license_author': 'wger.de',
+              'muscles': [2],
+              'muscles_secondary': [],
+              'name': 'Shoulder Press, Barbell',
+              'name_original': 'Shoulder press, barbell',
+              'status': '2',
+              'uuid': '9926e18f-4e2b-4c20-9477-9bfb08d229bc'}]}

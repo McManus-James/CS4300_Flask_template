@@ -1,0 +1,356 @@
+{'count': 199,
+ 'next': 'https://wger.de/api/v2/exercise/?key=value&key=value&key=value&key=value&key=value&language=2&ordering=id&page=6&status=2',
+ 'previous': 'https://wger.de/api/v2/exercise/?key=value&key=value&key=value&key=value&key=value&language=2&ordering=id&page=4&status=2',
+ 'results': [{'category': 9,
+              'creation_date': '2013-07-30',
+              'description': '<p>Jump wide, then close</p>',
+              'equipment': [],
+              'id': 185,
+              'language': 2,
+              'license': 1,
+              'license_author': 'OGhTebfCxhexZXuf35mUxV9C--A',
+              'muscles': [10],
+              'muscles_secondary': [],
+              'name': 'Squat Jumps',
+              'name_original': 'Squat Jumps',
+              'status': '2',
+              'uuid': 'bdb7bdbb-8930-46e5-8b98-eb13e604553f'},
+             {'category': 8,
+              'creation_date': '2013-07-31',
+              'description': '<p>Činka v jedné ruce v úrovni ramene. Zvedat do '
+                             'výšky napnuté paže a zpět. Provádět pomalu.</p>',
+              'equipment': [],
+              'id': 186,
+              'language': 2,
+              'license': 1,
+              'license_author': 'Horal_cz',
+              'muscles': [5],
+              'muscles_secondary': [2],
+              'name': 'Triceps Bench Press One Barbell',
+              'name_original': 'Triceps bench press one barbell',
+              'status': '2',
+              'uuid': '1855c71b-b005-4615-b90c-b2fed8e10342'},
+             {'category': 12,
+              'creation_date': '2013-08-04',
+              'description': '<p>Pull bar down to strenum and keep straight '
+                             'back.</p>',
+              'equipment': [],
+              'id': 187,
+              'language': 2,
+              'license': 1,
+              'license_author': 'drthurlow',
+              'muscles': [12],
+              'muscles_secondary': [],
+              'name': 'Lat Pull Down (Straight Back)',
+              'name_original': 'Lat Pull Down (Straight Back)',
+              'status': '2',
+              'uuid': '1f2d6fd6-bb93-424b-834e-e91dee52dcf3'},
+             {'category': 12,
+              'creation_date': '2013-08-04',
+              'description': '<p>Lean Back, Pull into chest</p>',
+              'equipment': [],
+              'id': 188,
+              'language': 2,
+              'license': 1,
+              'license_author': 'drthurlow',
+              'muscles': [12],
+              'muscles_secondary': [],
+              'name': 'Lat Pull Down (Leaning Back)',
+              'name_original': 'Lat Pull Down (Leaning back)',
+              'status': '2',
+              'uuid': 'dbe77958-51a8-4412-9927-4b24d80ed44f'},
+             {'category': 13,
+              'creation_date': '2013-08-11',
+              'description': '<p>Olympic weight lifting</p>',
+              'equipment': [],
+              'id': 189,
+              'language': 2,
+              'license': 1,
+              'license_author': 'sistab2',
+              'muscles': [4],
+              'muscles_secondary': [10],
+              'name': 'Power Clean',
+              'name_original': 'Power Clean',
+              'status': '2',
+              'uuid': '742334a0-9a6e-4668-9883-fa578ead2a64'},
+             {'category': 13,
+              'creation_date': '2013-08-11',
+              'description': '<p>olympic weight lifting</p>',
+              'equipment': [],
+              'id': 190,
+              'language': 2,
+              'license': 1,
+              'license_author': 'sistab2',
+              'muscles': [9],
+              'muscles_secondary': [8],
+              'name': 'Push Press',
+              'name_original': 'Push Press',
+              'status': '2',
+              'uuid': 'b22cfb08-66ab-4e2d-9757-9dea7c5d47f8'},
+             {'category': 9,
+              'creation_date': '2013-08-11',
+              'description': '<p>Squats</p>',
+              'equipment': [1],
+              'id': 191,
+              'language': 2,
+              'license': 1,
+              'license_author': 'sistab2',
+              'muscles': [8],
+              'muscles_secondary': [6],
+              'name': 'Front Squats',
+              'name_original': 'Front Squats',
+              'status': '2',
+              'uuid': 'f2e563d2-507b-4586-88c8-77652cd19648'},
+             {'category': 11,
+              'creation_date': '2013-08-11',
+              'description': '<p>Lay down on a bench, the bar should be '
+                             'directly above your eyes, the knees are somewhat '
+                             'angled and the feet are firmly on the floor. '
+                             'Concentrate, breath deeply and grab the bar more '
+                             'than shoulder wide. Bring it slowly down till it '
+                             'briefly touches your chest at the height of your '
+                             'nipples. Push the bar up.</p>\n'
+                             '<p>If you train with a high weight it is '
+                             'advisable to have a <em>spotter</em> that can '
+                             "help you up if you can't lift the weight on your "
+                             'own.</p>\n'
+                             '<p>With the width of the grip you can also '
+                             'control which part of the chest is trained '
+                             'more:</p>\n'
+                             '<ul>\n'
+                             '<li>wide grip: outer chest muscles</li>\n'
+                             '<li>narrow grip: inner chest muscles and '
+                             'triceps</li>\n'
+                             '</ul>',
+              'equipment': [1, 8],
+              'id': 192,
+              'language': 2,
+              'license': 1,
+              'license_author': 'sistab2',
+              'muscles': [4],
+              'muscles_secondary': [1],
+              'name': 'Bench Press',
+              'name_original': 'Bench Press',
+              'status': '2',
+              'uuid': '5da6340b-22ec-4c1b-a443-eef2f59f92f0'},
+             {'category': 8,
+              'creation_date': '2013-08-12',
+              'description': '<p>\xa0Place the EZ curl bar on the rest handles '
+                             'in front of the preacher bench.\xa0Lean over the '
+                             'bench and grab the EZ curl bar with palms up.\xa0'
+                             'Sit down on the preacher bench seat so your '
+                             'upper arms rest on top of the pad and your chest '
+                             'is pressed against the pad.\xa0Lower the weight '
+                             'until your elbows are extended and arms are '
+                             'straight.\xa0Bring the weights back up to the '
+                             'starting point by contracting biceps. Repeat</p>',
+              'equipment': [],
+              'id': 193,
+              'language': 2,
+              'license': 1,
+              'license_author': 'cgoob883',
+              'muscles': [13],
+              'muscles_secondary': [13],
+              'name': 'Preacher Curls',
+              'name_original': 'Preacher Curls',
+              'status': '2',
+              'uuid': '84b4e711-8b29-4541-ad58-dad967f82390'},
+             {'category': 11,
+              'creation_date': '2013-08-20',
+              'description': '<p>Grasp a moderately weighted dumbbell so your '
+                             'palms are flat against the underside of the top '
+                             'plates and your thumbs are around the bar. Lie '
+                             'on your back across a flat bench so only your '
+                             'upper back and shoulders are in contact with the '
+                             'bench. Your feet should be set about '
+                             'shoulder-width apart and your head should hang '
+                             'slightly downward. With the dumbbell supported '
+                             "at arm's length directly about your chest, bend "
+                             'your arms about 15 degrees and keep them bent '
+                             'throughout the movement. Slowly lower the '
+                             'dumbbell backward and downward in a semicircle '
+                             'arc to as low a position as is comfortably '
+                             'possible. Raise it slowly back along the same '
+                             'arc to the starting point, and repeat for the '
+                             'required number of repetitions.</p>',
+              'equipment': [],
+              'id': 194,
+              'language': 2,
+              'license': 1,
+              'license_author': 'powerade69',
+              'muscles': [12, 4, 3],
+              'muscles_secondary': [],
+              'name': 'Cross-Bench Dumbbell Pullovers',
+              'name_original': 'Cross-Bench Dumbbell Pullovers',
+              'status': '2',
+              'uuid': '122f5dd3-fc8c-47fe-9a79-1c15cf784a60'},
+             {'category': 8,
+              'creation_date': '2013-08-28',
+              'description': '<p>Start with your body streched, your hands are '
+                             'shoulder-wide appart on the ground. Push '
+                             'yourself off the ground till you strech your '
+                             'arms. The back is always straight and as well as '
+                             'the neck (always look to the ground). Lower '
+                             'yourself to the initial position and repeat.</p>',
+              'equipment': [7],
+              'id': 195,
+              'language': 2,
+              'license': 1,
+              'license_author': 'maxamillion1414',
+              'muscles': [5],
+              'muscles_secondary': [2, 4, 6],
+              'name': 'Push Ups',
+              'name_original': 'Push ups',
+              'status': '2',
+              'uuid': '9d756e84-6b77-4f17-b21d-7d266d6a8bd2'},
+             {'category': 10,
+              'creation_date': '2013-09-22',
+              'description': '<p>Hands at shoulder height, curl arms in toward '
+                             'head, then back out.</p>',
+              'equipment': [],
+              'id': 197,
+              'language': 2,
+              'license': 1,
+              'license_author': 'ThisGirl0819',
+              'muscles': [1],
+              'muscles_secondary': [],
+              'name': 'Overhand Cable Curl',
+              'name_original': 'Overhand Cable Curl',
+              'status': '2',
+              'uuid': 'e7fdd8fb-5e07-4a29-9d56-a005338b2e19'},
+             {'category': 12,
+              'creation_date': '2014-01-06',
+              'description': '<p>Back excercise with a barbell with a starting '
+                             'position which is in a bent over position with '
+                             'the back paralell to the ground. The barbell is '
+                             'on the ground at chest level.For the movement '
+                             'grab the barbell at shoulder width grip and pull '
+                             'towards your chest without losing the bent over '
+                             'position and without moving anything but your '
+                             'arms</p>',
+              'equipment': [1],
+              'id': 202,
+              'language': 2,
+              'license': 1,
+              'license_author': 'Nallitnas',
+              'muscles': [12, 9],
+              'muscles_secondary': [1, 5],
+              'name': 'Pendelay Rows',
+              'name_original': 'Pendelay rows',
+              'status': '2',
+              'uuid': 'eed05679-d1cb-44a2-a17d-dd5b0097c874'},
+             {'category': 8,
+              'creation_date': '2014-01-12',
+              'description': '<p>Pushup against a wall</p>',
+              'equipment': [7],
+              'id': 203,
+              'language': 2,
+              'license': 1,
+              'license_author': 'Dexter',
+              'muscles': [2, 4, 5],
+              'muscles_secondary': [8, 6, 3, 9],
+              'name': 'Wall Pushup',
+              'name_original': 'Wall pushup',
+              'status': '2',
+              'uuid': '504c91f8-5a76-4faa-943f-13799357a426'},
+             {'category': 12,
+              'creation_date': '2014-01-13',
+              'description': '<p>Lat pulldowns with a wide grip on the '
+                             'bar.</p>',
+              'equipment': [],
+              'id': 204,
+              'language': 2,
+              'license': 1,
+              'license_author': 'tuckerm',
+              'muscles': [12],
+              'muscles_secondary': [],
+              'name': 'Wide-grip Pulldown',
+              'name_original': 'Wide-grip pulldown',
+              'status': '2',
+              'uuid': '34fc154f-cc8d-4e52-adb7-ff0dad2d0770'},
+             {'category': 8,
+              'creation_date': '2014-01-15',
+              'description': '<p>Sit on the preacher curl bench and perform a '
+                             'bicep curl with a dumbbell in one hand. Your '
+                             'other hand can be at rest, or beneath your '
+                             "curling arm's elbow.</p>",
+              'equipment': [3],
+              'id': 205,
+              'language': 2,
+              'license': 1,
+              'license_author': 'tuckerm',
+              'muscles': [1],
+              'muscles_secondary': [],
+              'name': 'Single-arm Preacher Curl',
+              'name_original': 'Single-arm preacher curl',
+              'status': '2',
+              'uuid': '83e079a9-b61c-413b-b055-f9cf515904f1'},
+             {'category': 11,
+              'creation_date': '2014-01-15',
+              'description': '<p>Use inclined bench. Hold dumbbells straight '
+                             'out to your sides, elbows slightly bent. Bring '
+                             'arms together above you, keeping angle of elbows '
+                             'fixed.</p>',
+              'equipment': [3, 9],
+              'id': 206,
+              'language': 2,
+              'license': 1,
+              'license_author': 'tuckerm',
+              'muscles': [4],
+              'muscles_secondary': [],
+              'name': 'Incline Dumbbell Flye',
+              'name_original': 'Incline dumbbell flye',
+              'status': '2',
+              'uuid': '7327ab51-7073-4c84-9e3f-2e83af40e96c'},
+             {'category': 11,
+              'creation_date': '2014-01-15',
+              'description': '<p>Begin with cables at about shoulder height, '
+                             'one in each hand. Take a step forward so that '
+                             'one foot is in front of the other, for '
+                             'stability, and so that there is tension on the '
+                             'cables. Bring hands together in front of you. '
+                             'Try to make your hands overlap (so that the '
+                             'cables cross) a few inches.</p>',
+              'equipment': [],
+              'id': 207,
+              'language': 2,
+              'license': 1,
+              'license_author': 'tuckerm',
+              'muscles': [4],
+              'muscles_secondary': [],
+              'name': 'Cable Cross-over',
+              'name_original': 'Cable cross-over',
+              'status': '2',
+              'uuid': '1b9ed9da-46d1-4484-8acc-236379ee823c'},
+             {'category': 8,
+              'creation_date': '2014-01-15',
+              'description': '<p>Hold bar with reverse (or "overhand") grip, '
+                             'palms facing the floor.</p>',
+              'equipment': [2],
+              'id': 208,
+              'language': 2,
+              'license': 1,
+              'license_author': 'tuckerm',
+              'muscles': [1],
+              'muscles_secondary': [],
+              'name': 'Reverse Bar Curl',
+              'name_original': 'Reverse bar curl',
+              'status': '2',
+              'uuid': '438678dc-5a62-4496-9458-341af0616626'},
+             {'category': 9,
+              'creation_date': '2014-01-16',
+              'description': '<ul>\n'
+                             '<li>Keep legs straight</li>\n'
+                             '<li>Keep back straight</li>\n'
+                             '</ul>',
+              'equipment': [1],
+              'id': 209,
+              'language': 2,
+              'license': 1,
+              'license_author': 'tuckerm',
+              'muscles': [11],
+              'muscles_secondary': [8],
+              'name': 'Stiff-legged Deadlifts',
+              'name_original': 'Stiff-legged deadlifts',
+              'status': '2',
+              'uuid': '335d0042-7cb3-41c3-af23-c22c8cb858ad'}]}

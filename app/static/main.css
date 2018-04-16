@@ -1,20 +1,11 @@
-@media (min-width: 1200px) {
-.container {
-    max-width: 970px;
-}
-}
 @media (min-width:400px){
 .global-search {
-padding: 20px 0;
+padding:10px;
 text-align:center;
 }
 body {
-padding-top: 15%;
+padding-top: 2.5%;
 padding-bottom: 15px;
-}
-.global-search {
-/*text-align:center;*/
-padding:10px;
 }
 .advanced-search {
 text-align: center;
@@ -26,7 +17,6 @@ width:500px;
 }
 .global-search * {
 display:inline-block;
-margin-bottom:0;
 }
 }
 .search-link{
@@ -39,4 +29,19 @@ border: none
 }
 .step-links a{
 color: #4285F4;
+}
+
+.output {
+  height: 300px;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.images {
+  height: 100%;
+  margin-left: -5%;
+}
+
+img {
+  width: 49%;
 }

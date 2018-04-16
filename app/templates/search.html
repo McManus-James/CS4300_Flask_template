@@ -2,6 +2,8 @@
     <head>
         <link rel="stylesheet" href="/static/bootstrap.min.css">
         <link rel="stylesheet" href="/static/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/static/main.js"></script>
     </head>
     <body>
         <form class="form-inline global-search">
@@ -18,17 +20,52 @@
         </form>
         <a class="search-link" href="{{ url_for('advanced') }}">advanced search </a>
         <form class="form-inline global-search">
+            <div class="form-group">
+                <h1>{{output_message}}</h1>
+                <br>
+                <select id="exercise" name="exercise" >
+                    {% if data %}
+                        {% for d in data %}
+                            <option value="{{loop.index}}">{{d['name']}}</option>
+                        {% endfor %}
+                    {% endif %}
+                </select>
+            </div>
+        </form>
         {% if data %}
-            <h1>{{output_message}}</h1>
             {% for d in data %}
-                <br>
-                <p>{{d['name']}}</p>
-                <br>
-                <p>{{d['muscles']}}</p>
-                <br>
+                <div id="output{{loop.index}}" class="output row">
+                    <div class="col-sm-6">
+                        <h2>{{d['name']}}</h2>
+                        {% if d['image'] %}
+                            <div class="images">
+                                {% for i in d['image'] %}
+                                    <img src="{{i}}">
+                                {% endfor %}
+                            </div>
+                        {% endif %}
+                    </div>
+                    <div class="col-sm-6">
+                        {% if d['muscles'] %}
+                            <h4>Muscle Groups</h4>
+                            {% for m in d['muscles'] %}
+                                <p> {{m}} </p>
+                            {% endfor %}
+                        {% endif %}
+                        {% if d['equipment'] %}
+                            <h4>Equipment Needed</h4>
+                            {% for e in d['equipment'] %}
+                                <p> {{e}} </p>
+                            {% endfor %}
+                        {% endif %}
+                        {% if d['description'] %}
+                            <h4>Instructions</h4>
+                            <p>{{d['description']}}</p>
+                        {% endif %}
+                    </div>
+                </div>
             {% endfor %}
         {% endif %}
-        </form>
     </body>
 
 </html>

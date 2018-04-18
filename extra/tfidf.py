@@ -39,12 +39,12 @@ def build_vectorizer(max_features, stop_words, max_df=1.0, min_df=1, norm='l2'):
         equipment.append(" ".join(exercise['equipment']))
         description.append(exercise['description'])
         #etype.append(exercise['exerciseType'])
-    tf_idf_vec_name = TfidfVectorizer(input=name, stop_words= stop_words, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
-    tf_idf_vec_muscles = TfidfVectorizer(input=name, stop_words= stop_words, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
-    tf_idf_vec_equipment = TfidfVectorizer(input=name, stop_words= stop_words, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
-    tf_idf_vec_description = TfidfVectorizer(input=name, stop_words= stop_words, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
-    #tf_idf_vec_type = TfidfVectorizer(input=etype, stop_words= stop_words, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
 
+    tf_idf_vec_name = TfidfVectorizer(input=name, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
+    tf_idf_vec_muscles = TfidfVectorizer(input=name, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
+    tf_idf_vec_equipment = TfidfVectorizer(input=name, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
+    tf_idf_vec_description = TfidfVectorizer(input=name, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
+    #tf_idf_vec_type = TfidfVectorizer(input=etype, stop_words= stop_words, max_df= max_df, min_df= min_df, max_features= max_features, norm= norm)
     return (tf_idf_vec_name, tf_idf_vec_muscles, tf_idf_vec_equipment, tf_idf_vec_description)
 
 tfidf_vecs = build_vectorizer(5000, "english")
@@ -71,6 +71,7 @@ desc_tfidf.close()
 
 name_vocab_to_index = {v:i for i, v in enumerate(tfidf_vecs[0].get_feature_names())} #takes a word and gives the index of it in the name tfidf matrix
 muscles_vocab_to_index = {v:i for i, v in enumerate(tfidf_vecs[1].get_feature_names())} #takes a word and gives the index of it in the muscles tfidf matrix
+print(muscles_vocab_to_index.keys())
 equipment_vocab_to_index = {v:i for i, v in enumerate(tfidf_vecs[2].get_feature_names())} #takes a word and gives the index of it in the equipment tfidf matrix
 desc_vocab_to_index = {v:i for i, v in enumerate(tfidf_vecs[3].get_feature_names())} #takes a word and gives the index of it in the description tfidf matrix
 

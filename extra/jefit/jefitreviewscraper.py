@@ -86,6 +86,7 @@ def getInformation(row, idRoutine):
 	jsonofData["url"]	= url
 	jsonofData["votes"]	= votesCount
 	jsonofData["exercises"] = workouts
+	jsonofData["rating"] = rating
 	data[idRoutine] = jsonofData
 	return(True, 1)
 	

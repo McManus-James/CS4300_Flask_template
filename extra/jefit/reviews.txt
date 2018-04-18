@@ -1,0 +1,39 @@
+Routines web scraped from Jefit.
+To make it into this list, routines must have at least 1k views and 10 votes. 
+Contains data in the following format:
+
+{
+  "0": {
+    "name": "Dumbbell-Only Full Body Home Workout",
+    "frequency": "3d/w",
+    "routineType": "General",
+    "difficulty": "Beginner",
+    "downloads": 8316,
+    "views": 470003,
+    "url": "https://www.jefit.com/routines/workout-routine-database.php?id=19974",
+    "votes": 1231,
+    "exercises": [
+      "Dumbbell Squat",
+      "Dumbbell Alternate Bicep Curl",
+      "Dumbbell Stiff Leg Deadlift",
+      "Dumbbell Shoulder Press",
+      "Dumbbell Step Ups",
+      "Dumbbell Arnold Press",
+      "Dumbbell Concentration Curls",
+      "Dumbbell Incline Bench Press",
+      "Dumbbell Spider Curl",
+      "Dumbbell Incline Fly",
+      "Dumbbell Lying Triceps Extension",
+      "Dumbbell Tate Press",
+      "Dumbbell Lunges",
+      "Dumbbell Rear Lunge",
+      "Dumbbell Standing Triceps Extension",
+      "Dumbbell Deadlift",
+      "Dumbbell Standing One Arm Triceps Extension",
+      "Dumbbell Fly",
+      "Dumbbell Bench Press",
+      "Dumbbell Shoulder Shrug",
+      "Dumbbell Upright Row"
+    ]
+  }, ...
+}

@@ -1,0 +1,20 @@
+All exercises web scraped from Jefit.
+Contains data in the following format:
+
+{
+  "0": {
+    "name": "1 Leg Pushup",
+    "muscles": [
+      "Chest",
+      "Shoulders",
+      "Triceps"
+    ],
+    "exerciseType": "Strength",
+    "equipment": [],
+    "description": " 1.) Start off by getting yourself into a pushup position with arms shoulder width apart and feet extended behind you with toes flat on the floor.2.) Take one leg and place it over the other so that only one foot is positioned on the floor.3.) Slowly lower yourself down until your chest almost touches the floor then hold for a count.4.) Return back to the starting position.5.) Repeat for as many reps and sets as desired.",
+    "image": [
+      "https://www.jefit.com/images/exercises/800_600/4212.jpg",
+      "https://www.jefit.com/images/exercises/800_600/4213.jpg"
+    ]
+  } ...
+}

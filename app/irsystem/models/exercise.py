@@ -27,7 +27,7 @@ class Exercise:
 		dics = [app.config['description_vocab_to_index'], app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
 		tf_idfs = [app.config['desc_tfidf'], app.config['equip_tfidf'], app.config['muscles_tfidf'], app.config['name_tfidf']]
 
-		query_tokens = nltk.word_tokenize(query)
+		query_tokens = nltk.word_tokenize(query.lower())
 		query_vecs = []
 		for dic in dics:
 			q_vec = np.zeros((len(dic),1))

@@ -4,35 +4,33 @@
         <link rel="stylesheet" href="/static/main.css">
     </head>
     <body>
-        <form class="form advanced-search">
+        <form class="form advanced-search row">
             <h1 style="font-size: 55px; font-family:Futura; color: #4285F4">
                 Exercise Planner
             </h1>
 
             <br><br>
 
-            <div class="form-group">
+            <div class="row">
                 <input id="input" type="text" name="search" class="form-control" placeholder="Exercise name">
             </div>
-            <div class="form-group">
-                <select name="muscles" >
-                    {% if muscles %}
-                        {% for m in muscles %}
-                            <option value="{{m}}">{{m}}</option>
-                        {% endfor %}
-                    {% endif %}
-                </select>
+            <div class="col-6">
+                <h4>What muscles do you wish to target?</h4>
+                {% if muscles %}
+                    {% for m in muscles %}
+                        <input type="checkbox" name="muscles" value="{{m}}"> {{m}}<br>
+                    {% endfor %}
+                {% endif %}
             </div>
-            <div class="form-group">
-                <select name="equipment" >
-                  {% if equipment %}
-                        {% for e in equipment %}
-                            <option value="{{e}}">{{e}}</option>
-                        {% endfor %}
-                    {% endif %}
-                </select>
+            <div class="col-6">
+                <h4>What equipment do you have access to?</h4>
+                {% if equipment %}
+                    {% for e in equipment %}
+                        <input type="checkbox" name="equipment" value="{{e}}"> {{e}}<br>
+                    {% endfor %}
+                {% endif %}
             </div>
-            <div class="form-group">
+            <div class="row">
                 <input type="checkbox" name="routine" value="routine"> I want a routine<br>
             </div>
 
@@ -40,6 +38,46 @@
         </form>
         <a class="search-link" href="/">simple search </a>
 
+        <div class="form-group">
+                {% if output_message %}
+                    <h1>{{output_message}}</h1>
+                    <br>
+                {% endif %}
+        </div>
+        <div class="container">
+        {% if data %}
+            {% for d in data %}
+                <div id="output{{loop.index}}" class="row justify-content-lg-center">
+                    <h2>{{d['name']}}</h2>
+                    <div class="col-lg-6">
+                        {% if d['image'] %}
+                            {% for i in d['image'] %}
+                                <img class="exercises" src="{{i}}">
+                            {% endfor %}
+                        {% endif %}
+                    </div>
+                    <div class="col-lg-6">
+                        {% if d['muscles'] %}
+                            <h4>Muscle Groups</h4>
+                            {% for m in d['muscles'] %}
+                                <p> {{m}} </p>
+                            {% endfor %}
+                        {% endif %}
+                        {% if d['equipment'] %}
+                            <h4>Equipment Needed</h4>
+                            {% for e in d['equipment'] %}
+                                <p> {{e}} </p>
+                            {% endfor %}
+                        {% endif %}
+                        {% if d['description'] %}
+                            <h4>Instructions</h4>
+                            <p>{{d['description']}}</p>
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        {% endif %}
+        </div>
     </body>
 
 </html>

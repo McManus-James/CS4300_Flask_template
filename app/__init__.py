@@ -96,6 +96,4 @@ f.close()
 def not_found(error):
   return render_template("404.html"), 404
 
-@app.route('/advanced', methods=['GET'])
-def advanced():
-  return render_template("advanced.html", muscles=sorted(set(muscles)), equipment=sorted(set(equipment)))
+

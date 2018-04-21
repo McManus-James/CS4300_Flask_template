@@ -41,8 +41,8 @@
 
         /*Exercise Planner Heading*/
         #heading {
-            font-size: 55px; 
-            font-family:Futura; 
+            font-size: 55px;
+            font-family:Futura;
             color: #4285F4;
         }
 
@@ -57,7 +57,7 @@
         }
 
     </style>
-    
+
     <body>
         <form class="form-inline global-search">
             <h1 id="heading">
@@ -71,7 +71,7 @@
             </div>
             <button type="submit" class="btn btn-info"> Go! </button>
         </form>
-        <a class="search-link" href="{{ url_for('advanced') }}">advanced search </a>
+        <a class="search-link" href="{{ url_for('irsystem.advanced') }}">advanced search </a>
         <form class="form-inline global-search">
             <div class="form-group">
                 {% if output_message %}

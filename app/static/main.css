@@ -9,8 +9,9 @@ padding-bottom: 15px;
 }
 .advanced-search {
 text-align: center;
-width:500px;
-margin: auto;
+display: flex;
+flex-wrap: wrap;
+justify-content: center;
 }
 .global-search .form-control {
 width:500px;
@@ -33,8 +34,8 @@ color: #4285F4;
 
 /*Exercise Planner Heading*/
 #heading {
-	font-size: 55px; 
-	font-family:Futura; 
+	font-size: 55px;
+	font-family:Futura;
 	color: #4285F4;
 }
 
@@ -46,4 +47,12 @@ color: #4285F4;
 
 h2, h4 {
 	font-weight: bolder;
+}
+
+.row {
+  width: 100%;
+}
+
+.col-6 {
+  width: 50%
 }

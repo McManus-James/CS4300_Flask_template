@@ -3,6 +3,7 @@ import numpy as np
 from numpy import linalg as LA
 import os
 import nltk
+import re
 from flask import current_app as app
 
 
@@ -59,7 +60,10 @@ class Exercise:
 			index = app.config['vector_index_to_exercise'][int(sorted_ind[i])]
 			entry = app.config['raw_data'][index]
 			result.append(entry)
-
+			pat = re.compile('\d+\.\)');
+			newline = re.compile('\n')
+			for r in result:
+				r['description'] = re.sub(pat, '\n', r['description'])
 		return result
 
 	@classmethod

@@ -4,39 +4,39 @@
         <link rel="stylesheet" href="/static/main.css">
     </head>
     <body>
-        <form class="form advanced-search row">
+        <form class="form global-search row">
             <h1 style="font-size: 55px; font-family:Futura; color: #4285F4">
                 Exercise Planner
             </h1>
 
             <br><br>
 
-            <div class="row">
-                <input id="input" type="text" name="search" class="form-control" placeholder="Exercise name">
+            <div class="col-lg-12">
+                <input id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
             </div>
-            <div class="col-6">
-                <h4>What muscles do you wish to target?</h4>
+            <div class="col-lg-6">
+                <h4>What muscles do you wish to target?</h4><br>
                 {% if muscles %}
                     {% for m in muscles %}
                         <input type="checkbox" name="muscles" value="{{m}}"> {{m}}<br>
                     {% endfor %}
                 {% endif %}
             </div>
-            <div class="col-6">
-                <h4>What equipment do you have access to?</h4>
+            <div class="col-lg-6">
+                <h4>What equipment do you have access to?</h4><br>
                 {% if equipment %}
                     {% for e in equipment %}
                         <input type="checkbox" name="equipment" value="{{e}}"> {{e}}<br>
                     {% endfor %}
                 {% endif %}
             </div>
-            <div class="row">
+            <div class="col-lg-12">
                 <input type="checkbox" name="routine" value="routine"> I want a routine<br>
             </div>
 
-            <button type="submit" class="btn btn-info"> Go! </button>
+            <button type="submit" class="btn btn-info col-lg-12"> Go! </button>
         </form>
-        <a class="search-link" href="/">simple search </a>
+        <a class="search-link col-lg-12" href="/">simple search </a>
 
         <div class="form-group">
                 {% if output_message %}

@@ -4,9 +4,50 @@ from numpy import linalg as LA
 import os
 import nltk
 from flask import current_app as app
+import Levenshtein
 
 
 class Exercise:
+
+	@classmethod
+	def simple_suggested(self, query):
+		dics = [app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
+		top_words = []
+		for dic in dics:
+			top_words.extend(dic.keys())
+		query_tokens = nltk.word_tokenize(query.lower())
+		suggested_query = []
+		for token in query_tokens:
+			top_suggestion = token
+			max_distance = 3 #can be subbed for anything
+			for word in top_words:
+				if Levenshtein.distance(token, word) <= max_distance:
+					top_suggestion = word
+					max_distance = Levenshtein.distance(token, word)
+			suggested_query.append(top_suggestion)
+		if suggested_query == query_tokens:
+			return self.simple_search(query)
+		new_query = ' '.join(suggested_query)
+		print("Did you mean: %s?" % ' '.join(suggested_query))
+		return self.simple_search(new_query)
+
+	@classmethod
+	def advanced_suggested(self, query, muscles, equipment, routine):
+		dics = [app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
+		fields = (nltk.word_tokenize(query), dics[2]), (muscles, dics[1]), (equipment, dics[0])
+		suggested_fields = []
+		for field_tokens in fields:
+			suggested_query = []
+			for token in field_tokens:
+				top_suggestion = token
+				max_distance = 3 #can be subbed for anything
+				for word in field[1].keys():
+					if Levenshtein.distance(token, word) <= max_distance:
+						top_suggestion = word
+						max_distance = Levenshtein.distance(token, word)
+				suggested_query.append(top_suggestion)
+			suggested_fields.append(suggested_query)
+
 
 	@classmethod
 	#Search method. Simple search takes in name parameter as query and

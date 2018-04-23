@@ -6,6 +6,9 @@ import nltk
 import re
 from flask import current_app as app
 import Levenshtein
+from scipy.sparse.linalg import svds
+from sklearn.preprocessing import normalize
+# import matplotl/ib.pyplot as plt
 
 class Exercise:
 
@@ -56,12 +59,12 @@ class Exercise:
 	#returns exercises which match each criteria (intersection). Routine
 	#determines whether to return individual exercises or a routine
 	# comment
-	def get_exercises(self, name = None, muscles = None, equipment = None, routine = None):
+	def get_exercises(self, name = None, muscles = None, equipment = None, routine = False, difficulty=0):
 
 		if muscles == None and equipment == None and routine == None:			#Place Holder for simple search check
 			return self.simple_suggested(name)
 		else:
-			return self.advanced_search(name, muscles, equipment, routine)
+			return self.advanced_search(name, muscles, equipment, routine, difficulty)
 
 	@classmethod
 	def simple_search(self, query, desc_w=.25, equip_w=.25, musc_w=.25, name_w=.25):
@@ -107,10 +110,25 @@ class Exercise:
 		return result
 
 	@classmethod
-	def advanced_search(self, query, muscles = None, equipment = None, routine=False, desc_w=.1, equip_w=.15, musc_w=.5, name_w=.25):
+	def advanced_search(self, query, muscles = None, equipment = None, routine=False, difficulty=0, desc_w=.25, equip_w=.25, musc_w=.25, name_w=.25):
 		dics = [app.config['description_vocab_to_index'], app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
 		tf_idfs = [app.config['desc_tfidf'], app.config['equip_tfidf'], app.config['muscles_tfidf'], app.config['name_tfidf']]
 		query_tokens = []
+
+		# difficulty adjustments
+		if difficulty == 0:
+			query += ' easy'
+			query += ' light'
+
+		if difficulty == 0:
+			query += ' medium'
+			query += ' moderate'
+
+		if difficulty == 0:
+			query += ' hard'
+			query += ' heavy'
+			query += ' power'
+
 		query_tokens.extend(nltk.word_tokenize(query.lower()))
 		if muscles != None:
 			for m in muscles:
@@ -151,4 +169,62 @@ class Exercise:
 			entry = app.config['raw_data'][index]
 			result.append(entry)
 
+		if not routine:
+			return result
+
+		# Machine Learning (SVD) to build a workout for a day
+		if routine:
+			if difficulty == None:
+				difficulty =0
+			ratings = np.zeros((1299,1))
+			for i in range(len(app.config['raw_data'])):
+				index = app.config['vector_index_to_exercise'][i]
+				rating = (app.config['raw_data'][index]['rating'])
+				ratings[i] = int(rating)
+			xTr = np.concatenate((tf_idfs[0], tf_idfs[1], tf_idfs[2], tf_idfs[3], ratings/float(182)), axis=1)
+			
+			rating = np.zeros((1,1))
+			rating[0] = ((3-int(difficulty))*50)/float(182)
+			xTe = np.concatenate((query_vecs[0], query_vecs[1], query_vecs[2], query_vecs[3], rating), axis=1)
+			
+			words_compressed, s, docs_compressed = svds(xTr.T, k=15)
+			
+			docs_compressed = docs_compressed.transpose()
+			docs_compressed = normalize(docs_compressed, axis = 1)
+			xTe = normalize(xTe, axis = 1)
+
+
+			xTe_projected = xTe.dot(words_compressed)
+    		sims = docs_compressed.dot(xTe_projected.T)
+
+
+    		sorted_ind = np.argsort(sims, axis=0 )[::-1]
+    		result = []
+    		i=0
+    		while i<(5 + int(difficulty)):
+    			index = app.config['vector_index_to_exercise'][int(sorted_ind[i])]
+    			entry = app.config['raw_data'][index]
+    			if 'stretch' in entry['name'].lower() or 'relaxation' in entry['name'].lower():
+    				result = [entry] + result
+    			else:
+    				result.append(entry)
+    			i+=1
+    		 
 		return result
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+					

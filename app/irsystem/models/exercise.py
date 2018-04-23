@@ -162,7 +162,7 @@ class Exercise:
 
 		sim_matrices = []
 		for i in range(len(tf_idfs)):
-			sim_matrices.append(np.dot(tf_idfs[i], query_vecs[i].T))
+		 	sim_matrices.append(np.dot(tf_idfs[i], query_vecs[i].T))
 
 		weighted_sim = (desc_w*sim_matrices[0] + equip_w*sim_matrices[1] + musc_w*sim_matrices[2] + name_w*sim_matrices[3])
 		sorted_ind = np.argsort(weighted_sim, axis=0 )[::-1]

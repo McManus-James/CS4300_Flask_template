@@ -25,11 +25,7 @@ class Exercise:
 					top_suggestion = word
 					max_distance = Levenshtein.distance(token, word)
 			suggested_query.append(top_suggestion)
-		if suggested_query == query_tokens:
-			return self.simple_search(query)
-		new_query = ' '.join(suggested_query)
-		print("Did you mean: %s?" % ' '.join(suggested_query))
-		return self.simple_search(new_query)
+		return ''.join(suggested_query)
 
 	# @classmethod
 	# def advanced_suggested(self, query, muscles, equipment, routine):
@@ -59,7 +55,7 @@ class Exercise:
 	def get_exercises(self, name = None, muscles = None, equipment = None, routine = None):
 
 		if muscles == None and equipment == None and routine == None:			#Place Holder for simple search check
-			return self.simple_suggested(name)
+			return self.simple_search(name)
 		else:
 			return self.advanced_search(name, muscles, equipment, routine)
 
@@ -107,22 +103,31 @@ class Exercise:
 		return result
 
 	@classmethod
-	def advanced_search(self, query, muscles = None, equipment = None, routine=False, desc_w=.1, equip_w=.15, musc_w=.5, name_w=.25):
+	def advanced_search(self, query, muscles = None, equipment = None, routine=False, desc_w=.1, equip_w=.3, musc_w=.4, name_w=.2):
 		dics = [app.config['description_vocab_to_index'], app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
 		tf_idfs = [app.config['desc_tfidf'], app.config['equip_tfidf'], app.config['muscles_tfidf'], app.config['name_tfidf']]
-		query_tokens = []
-		query_tokens.extend(nltk.word_tokenize(query.lower()))
+
+		name_tokens = []
+		name_tokens = nltk.word_tokenize(query.lower())
+
+		muscle_tokens = []
 		if muscles != None:
 			for m in muscles:
-				query_tokens.extend(nltk.word_tokenize(m.lower()))
+				muscle_tokens.extend(nltk.word_tokenize(m.lower()))
+
+		equipment_tokens = []
 		if equipment != None:
 			for e in equipment:
-				query_tokens.extend(nltk.word_tokenize(e.lower()))
+				equipment_tokens.extend(nltk.word_tokenize(e.lower()))
 
+
+		desc_tokens = name_tokens + muscle_tokens + equipment_tokens
+
+		query_tokens = [desc_tokens, equipment_tokens, muscle_tokens, name_tokens]
 		query_vecs = []
-		for dic in dics:
+		for i, dic in enumerate(dics):
 			q_vec = np.zeros((len(dic),1))
-			for t in query_tokens:
+			for t in query_tokens[i]:
 				if t in dic:
 					q_vec[dic[t]] += 1.0
 			query_vecs.append(q_vec)
@@ -133,7 +138,7 @@ class Exercise:
 			df = np.sum(cpy, axis=0)
 			df.reshape(df.shape[0] , 1)
 			query_vecs[i] = np.multiply(query_vecs[i].T, np.log(1299 / (1+df)))
-			# print query_vecs[i].shape
+
 
 		if all([np.count_nonzero(x) == 0 for x in query_vecs]):
 			return "No_Valid_Query_Terms".split()
@@ -152,3 +157,5 @@ class Exercise:
 			result.append(entry)
 
 		return result
+
+

@@ -25,6 +25,9 @@
                     <h1>{{output_message}}</h1>
                     <br>
                 {% endif %}
+                {% if original_query %}
+                    <h5>Did you want to search for: <a href="?search={{original_query}}&suggest=false">{{original_query}}</a></h5>
+                {% endif %}
             </div>
         </form>
 

@@ -9,13 +9,24 @@ net_id = "James McManus: jjm439, Kristian Langholm: krl38, Faadhil Moheed: fm363
 @irsystem.route('/', methods=['GET'])
 def search():
   query = request.args.get('search')
+  option = ''
   if not query:
     data = []
     output_message = ''
   else:
-    output_message = "Your search: " + query
+    output_message = "Your search was: " + query
+    suggest = request.args.get('suggest')
     data = Exercise.get_exercises(name = query)
-  return render_template('search.html', name=project_name, netid=net_id, output_message=output_message, data=data)
+    if suggest != "false":
+      suggested = Exercise.simple_suggested(query)
+      if (suggested != query):
+        output_message = "Currently searching for: " + suggested
+        option = query
+        data= Exercise.get_exercises(name = suggested)
+
+
+
+  return render_template('search.html', name=project_name, netid=net_id, original_query=option, output_message=output_message, data=data)
 
 datajson = json.load(open('././extra/jefit/data.json'))
 data = datajson.values()

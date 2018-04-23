@@ -55,7 +55,7 @@ class Exercise:
 	#returns exercises which match each criteria (intersection). Routine
 	#determines whether to return individual exercises or a routine
 	# comment
-	def get_exercises(self, name = None, muscles = None, equipment = None, routine = False, difficulty=0):
+	def get_exercises(self, name = None, muscles = None, equipment = None, routine = None, difficulty=0):
 
 		if muscles == None and equipment == None and routine == None:			#Place Holder for simple search check
 			return self.simple_search(name)

@@ -14,7 +14,7 @@ class Exercise:
 
 	@classmethod
 	def simple_suggested(self, query):
-		dics = [app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
+		dics = [app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index'], app.config['description_vocab_to_index']]
 		top_words = []
 		for dic in dics:
 			top_words.extend(dic.keys())

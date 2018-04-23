@@ -45,7 +45,6 @@ def advanced():
   equipment = request.args.getlist('equipment')
   routine = request.args.get('routine')
   difficulty = request.args.get('difficulty')
-  print difficulty
   if not query and not muscles and not equipment:
     data = []
     output_message = ''
@@ -53,4 +52,12 @@ def advanced():
     output_message = "Your search: " + query
     data = Exercise.get_exercises(name = query, muscles=muscles, equipment=equipment, routine=routine, difficulty=difficulty)
   return render_template("advanced.html", muscles=sorted(set(m_options)), equipment=sorted(set(e_options)),
-    output_message=output_message, data=data)
+    output_message=output_message, data=data, routine=routine)
+
+
+
+
+
+
+
+

@@ -29,6 +29,11 @@ border: none
 color: #4285F4;
 }
 
+.highlight {
+  font-weight:bold;
+  color:green;
+}
+
 /*Exercise Planner Heading*/
 #heading {
 	font-size: 55px;

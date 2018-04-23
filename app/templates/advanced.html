@@ -54,8 +54,9 @@
         </div>
         <div class="container">
         {% if data %}
-            {% for d in data %}
-                <div id="output{{loop.index}}" class="row justify-content-lg-center">
+            {% if not routine %}
+                {% for d in data %}
+                <div class="row justify-content-lg-center">
                     <h2>{{d['name']}}</h2>
                     <div class="col-lg-6">
                         {% if d['image'] %}
@@ -84,6 +85,24 @@
                     </div>
                 </div>
             {% endfor %}
+            {% else %}
+                <div class="routine">
+                    {% for d in data %}
+                        <div class="exercise col-lg-6">
+                            <h3 class = "col-lg-12">Exercise {{loop.index}}.) {{d['name']}}</h3>
+                            <h5 class="col-lg-6">Muscle Groups</h5>
+                                {% for m in d['muscles'] %}
+                                    <p> {{m}} </p>
+                                {% endfor %}
+                            <h5 class="col-lg-6">Equipment Needed</h5>
+                                {% for e in d['equipment'] %}
+                                    <p> {{e}} </p>
+                                {% endfor %}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
         {% endif %}
         </div>
     </body>

@@ -66,5 +66,14 @@
         {% endif %}
         </div>
     </body>
+    ## {% if data %}
+    ##     <script type="text/javascript">
+    ##        $('.container').each(function(){
+    ##        var search_value = "Back";
+    ##        var search_regexp = new RegExp(search_value, "g");
+    ##        $(this).html($(this).html().replace(search_regexp,"<span class = 'highlight'>"+search_value+"</span>"));
+    ##      });
+    ##     </script>
+    ## {% endif %}
 
 </html>

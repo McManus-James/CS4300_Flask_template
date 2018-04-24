@@ -2,6 +2,7 @@
     <head>
         <link rel="stylesheet" href="/static/bootstrap.min.css">
         <link rel="stylesheet" href="/static/main.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
     <body>
         <form class="form global-search row">
@@ -41,70 +42,107 @@
 
 
             </div>
-
-            <button type="submit" class="btn btn-info col-lg-12"> Go! </button>
+            <div class="col-lg-12">
+                <button type="submit" class="btn btn-info"> Go! </button>
+            </div>
         </form>
         <a class="search-link col-lg-12" href="/">simple search </a>
 
-        <div class="form-group">
-                {% if output_message %}
-                    <h1>{{output_message}}</h1>
-                    <br>
-                {% endif %}
-        </div>
         <div class="container">
-        {% if data %}
             {% if not routine %}
-                {% for d in data %}
-                <div class="row justify-content-lg-center">
-                    <h2>{{d['name']}}</h2>
-                    <div class="col-lg-6">
-                        {% if d['image'] %}
-                            {% for i in d['image'] %}
-                                <img class="exercises" src="{{i}}">
-                            {% endfor %}
-                        {% endif %}
-                    </div>
-                    <div class="col-lg-6">
-                        {% if d['muscles'] %}
-                            <h4>Muscle Groups</h4>
-                            {% for m in d['muscles'] %}
-                                <p> {{m}} </p>
-                            {% endfor %}
-                        {% endif %}
-                        {% if d['equipment'] %}
-                            <h4>Equipment Needed</h4>
-                            {% for e in d['equipment'] %}
-                                <p> {{e}} </p>
-                            {% endfor %}
-                        {% endif %}
-                        {% if d['description'] %}
-                            <h4>Instructions</h4>
-                            <p>{{d['description']}}</p>
-                        {% endif %}
-                    </div>
-                </div>
-            {% endfor %}
-            {% else %}
-                <div class="routine">
+                {% if output_message %}
+                    <h1>Your search: {{output_message}}</h1>
+                {% endif %}
+                {% if data %}
                     {% for d in data %}
-                        <div class="exercise col-lg-6">
-                            <h3 class = "col-lg-12">Exercise {{loop.index}}.) {{d['name']}}</h3>
-                            <h5 class="col-lg-6">Muscle Groups</h5>
-                                {% for m in d['muscles'] %}
-                                    <p> {{m}} </p>
-                                {% endfor %}
-                            <h5 class="col-lg-6">Equipment Needed</h5>
-                                {% for e in d['equipment'] %}
-                                    <p> {{e}} </p>
-                                {% endfor %}
+                        <div class="row justify-content-lg-center">
+                            <h2>{{d['name']}}</h2>
+                            <div class="col-lg-6">
+                                {% if d['image'] %}
+                                    {% for i in d['image'] %}
+                                        <img class="exercises" src="{{i}}">
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-6">
+                                {% if d['muscles'] %}
+                                    <h4>Muscle Groups</h4>
+                                    {% for m in d['muscles'] %}
+                                        <p> {{m}} </p>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if d['equipment'] %}
+                                    <h4>Equipment Needed</h4>
+                                    {% for e in d['equipment'] %}
+                                        <p> {{e}} </p>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if d['description'] %}
+                                    <h4>Instructions</h4>
+                                    <p>{{d['description']}}</p>
+                                {% endif %}
+                            </div>
                         </div>
                     {% endfor %}
-                </div>
+                {% endif %}
+            {% else %}
+                {% if output_message %}
+                    <h1>Your routine for: {{output_message}}</h1>
+                {% endif %}
+                {% if data %}
+                    <div class="routine">
+                        {% for d in data %}
+                            <div id="exercise" class="col-lg-6">
+                                <h3 class = "col-lg-12">Exercise {{loop.index}}.) {{d['name']}}</h3>
+                               {% if d['muscles'] %}
+                                <div class="col-lg-6">
+                                    <h5>Muscle Groups</h5>
+                                    {% for m in d['muscles'] %}
+                                        <p> {{m}} </p>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                {% if d['equipment'] %}
+                                <div class="col-lg-6">
+                                    <h5>Equipment Needed</h5>
+                                    {% for e in d['equipment'] %}
+                                        <p> {{e}} </p>
+                                    {% endfor %}
+                                </div>
+                                {% endif %}
+                                <div class="col-lg-12">
+                                    <button id="{{loop.index}}" onclick="dropdown(this.id)">
+                                        Click for instructions
+                                    </button>
+                                </div>
+                                <div id = "Instructions{{loop.index}}" hidden="true">
+                                    <div class="col-lg-12">
+                                        {% if d['image'] %}
+                                        <div class="col-lg-6">
+                                            {% if d['image'] %}
+                                                {% for i in d['image'] %}
+                                                    <img class="exercises" src="{{i}}">
+                                                {% endfor %}
+                                            {% endif %}
+                                        </div>
+                                        {% endif %}
+                                        <div class="col-lg-6">
+                                            <h4>Instructions</h4>
+                                            <p>{{d['description']}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
             {% endif %}
-
-        {% endif %}
         </div>
     </body>
+    <script type="text/javascript">
+        function dropdown(id){
+            $("#Instructions"+id).toggle()
+        }
+    </script>
 
 </html>

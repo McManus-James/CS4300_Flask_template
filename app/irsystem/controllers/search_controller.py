@@ -49,7 +49,7 @@ def advanced():
     data = []
     output_message = ''
   else:
-    output_message = "Your search: " + query
+    output_message = query + " " + ' '.join(muscles) + " "  +' '.join(equipment)
     data = Exercise.get_exercises(name = query, muscles=muscles, equipment=equipment, routine=routine, difficulty=difficulty)
   return render_template("advanced.html", muscles=sorted(set(m_options)), equipment=sorted(set(e_options)),
     output_message=output_message, data=data, routine=routine)

@@ -45,6 +45,7 @@
             {% for d in data %}
                 <div id="output{{loop.index}}" class="row justify-content-lg-center">
                     <h2>{{d['name']}}</h2>
+                    <h3>Exercise rating: {{d['rating']}}</h3>
                     <div class="col-lg-6">
                         {% if d['image'] %}
                             {% for i in d['image'] %}
@@ -52,7 +53,7 @@
                             {% endfor %}
                         {% endif %}
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         {% if d['muscles'] %}
                             <h4>Muscle Groups</h4>
                             {% for m in d['muscles'] %}
@@ -70,19 +71,20 @@
                             <p>{{d['description']}}</p>
                         {% endif %}
                     </div>
+                    <div class="col-lg-2">
+                        {% if d['top5Routines'] %}
+                            <h4>Suggested routines</h4>
+                            {% for r in d['top5Routines'] %}
+                                <a href="{{r['routineURL']}}">{{r['routineName']}}</a>
+                                <br>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
             {% endfor %}
         {% endif %}
         </div>
     </body>
-    ## {% if data %}
-    ##     <script type="text/javascript">
-    ##        $('.container').each(function(){
-    ##        var search_value = "Back";
-    ##        var search_regexp = new RegExp(search_value, "g");
-    ##        $(this).html($(this).html().replace(search_regexp,"<span class = 'highlight'>"+search_value+"</span>"));
-    ##      });
-    ##     </script>
-    ## {% endif %}
+
 
 </html>

@@ -28,7 +28,7 @@ class Exercise:
 					top_suggestion = word
 					max_distance = Levenshtein.distance(token, word)
 			suggested_query.append(top_suggestion)
-		return ''.join(suggested_query)
+		return ' '.join(suggested_query)
 
 	# @classmethod
 	# def advanced_suggested(self, query, muscles, equipment, routine):

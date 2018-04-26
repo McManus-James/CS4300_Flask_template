@@ -19,7 +19,7 @@
             </h1>
             <br>
 
-            <h2><a href="https://exercise-planner1.herokuapp.com/">Version 1</a></h2>
+            <h2><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Version 1</a></h2>
 
             <br><br>
 
@@ -78,7 +78,7 @@
                         {% if d['top5Routines'] %}
                             <h4>Suggested routines that includes the exercise</h4>
                             {% for r in d['top5Routines'] %}
-                                <a href="{{r['routineURL']}}">{{r['routineName']}}</a>
+                                <a  target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
                                 <br>
                             {% endfor %}
                         {% endif %}

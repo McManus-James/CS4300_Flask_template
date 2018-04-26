@@ -48,7 +48,7 @@
             {% for d in data %}
                 <div id="output{{loop.index}}" class="row justify-content-lg-center">
                     <h2>{{d['name']}}</h2>
-                    <h3>Exercise rating: {{d['rating']}}</h3>
+                    <h3>Cumulative exercise rating: {{d['rating']}}</h3>
                     <div class="col-lg-6">
                         {% if d['image'] %}
                             {% for i in d['image'] %}
@@ -76,7 +76,7 @@
                     </div>
                     <div class="col-lg-2">
                         {% if d['top5Routines'] %}
-                            <h4>Suggested routines</h4>
+                            <h4>Suggested routines that includes the exercise</h4>
                             {% for r in d['top5Routines'] %}
                                 <a href="{{r['routineURL']}}">{{r['routineName']}}</a>
                                 <br>

@@ -229,13 +229,8 @@ input[type=submit] {
 }
 .autocomplete-active {
   /*when navigating through the items using the arrow keys:*/
-<<<<<<< HEAD
   background-color: DodgerBlue !important;
   color: #ffffff;
-}
-=======
-  background-color: DodgerBlue !important; 
-  color: #ffffff; 
 }
 
 /**STAR RATING
@@ -249,7 +244,7 @@ Credits: https://codepen.io/Bluetidepro/pen/GkpEa
   width: 100px;
   position: relative;
   padding: 0;
-  text-shadow: 0px 1px 0 #a2a2a2; 
+  text-shadow: 0px 1px 0 #a2a2a2;
 }
 
 .star-ratings-css-top{
@@ -271,4 +266,3 @@ Credits: https://codepen.io/Bluetidepro/pen/GkpEa
     left: 0;
     z-index: 0;
 }
->>>>>>> 874ed6a9d0658979f5a451e686eb1e13d66cbb01

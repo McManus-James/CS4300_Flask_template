@@ -90,7 +90,13 @@
                     {% for d in data %}
                         <div class="row justify-content-lg-center">
                             <h2>{{d['name']}}</h2>
-                            <h3>Exercise rating: {{d['rating']}}</h3>
+                            <h3>Average User Score: {{d['rating']}}
+                            <div class="star-ratings-css" title = "{{d['rating']}}%">
+                                <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
+                                <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                            </div>
+                        </h3>
                             <div class="col-lg-6">
                                 {% if d['image'] %}
                                     {% for i in d['image'] %}
@@ -119,9 +125,9 @@
                             </div>
                             <div class="col-lg-2">
                                 {% if d['top5Routines'] %}
-                                    <h4>Suggested routines</h4>
+                                    <h4>Suggested routines that includes the exercise</h4>
                                     {% for r in d['top5Routines'] %}
-                                        <a href="{{r['routineURL']}}">{{r['routineName']}}</a>
+                                        <a target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
                                         <br>
                                     {% endfor %}
                                 {% endif %}

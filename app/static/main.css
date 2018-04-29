@@ -98,7 +98,9 @@ input[type=submit] {
   color: #ffffff; 
 }
 
-/**STAR RATING**/
+/**STAR RATING
+Credits: https://codepen.io/Bluetidepro/pen/GkpEa
+**/
 .star-ratings-css {
   unicode-bidi: bidi-override;
   color: #c5c5c5;

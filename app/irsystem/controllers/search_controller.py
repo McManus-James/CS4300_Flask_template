@@ -35,13 +35,13 @@ def search():
   else:
     output_message = "Your search was: " + query
     suggest = request.args.get('suggest')
-    data = Exercise.get_exercises(name = query)
+    data = Exercise.get_exercises(name = Exercise.expanded_query(query))
     if suggest != "false":
       suggested = Exercise.simple_suggested(query)
-      if (suggested != query):
+      if (suggested.lower() != query.lower()):
         output_message = "Currently searching for: " + suggested
         option = query
-        data= Exercise.get_exercises(name = suggested)
+        data= Exercise.get_exercises(name = Exercise.expanded_query(suggested))
 
   return render_template('search.html', name=project_name, netid=net_id, original_query=option, output_message=output_message, data=data, autocomplete=auto_set)
 

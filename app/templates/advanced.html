@@ -16,14 +16,47 @@
                 <input id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
             </div>
             <div class="col-lg-6">
-                <h4>What muscles do you wish to target?</h4><br>
-                {% if muscles %}
-                    {% for m in muscles %}
-                        <input type="checkbox" name="muscles" value="{{m}}"> {{m}}<br>
-                    {% endfor %}
-                {% endif %}
+                <h4>Which muscle groups do you wish to target?</h4><br>
+                <div id="bodypartTable2">
+                    <div class="buttonTableLeft">
+                        <input type="checkbox" name="muscles" id="triceps" class="vis-hidden" value="Triceps">
+                        <label for="triceps" class="exerciseButton whiteButton">Triceps</label>
+                        <br>
+                        <input type="checkbox" name="muscles" id="biceps" class="vis-hidden" value="Biceps">
+                        <label for="biceps" id="exercisebiceps" class="exerciseButton whiteButton">Biceps</label>
+                        <br>
+                        <input type="checkbox" name="muscles" id="back" class="vis-hidden" value="Back">
+                        <label for="back" id="exerciseback" class="exerciseButton whiteButton">Back</label>
+                        <br>
+                        <input type="checkbox" name="muscles" id="glutes" class="vis-hidden" value="Glutes">
+                        <label for="glutes" id="exerciseglutes" class="exerciseButton whiteButton">Glutes</label>
+                        <br>
+                        <input type="checkbox" id="lower-legs" name="muscles" class="vis-hidden" value="Lower Legs">
+                        <label for="lower-legs" id="exerciselowerlegs" class="exerciseButton whiteButton">Lower Legs</label>
+                    </div>
+                    <div class="buttonTableMiddle">
+                        <input type="checkbox" name="muscles" id="cardio" class="vis-hidden" value="Cardio">
+                        <label for="cardio" class="exerciseButton whiteButton">Cardio</label>
+                    </div>
+                    <div class="buttonTableRight">
+                        <input type="checkbox" name="muscles" id="shoulders" class="vis-hidden" value="Shoulders">
+                        <label for="shoulders" class="exerciseButton whiteButton">Shoulders</label>
+                        <br>
+                        <input type="checkbox" name="muscles" id="chest" class="vis-hidden" value="Chest">
+                        <label for="chest" id="exercisechest" class="exerciseButton whiteButton">Chest</label>
+                        <br>
+                        <input type="checkbox" name="muscles" id="forearm" class="vis-hidden" value="Forearm">
+                        <label for="forearm" id="exerciseforearms" class="exerciseButton whiteButton">Forearms</label>
+                        <br>
+                        <input type="checkbox" name="muscles" id="abs" class="vis-hidden" value="Abs">
+                        <label for="abs" id="exerciseabs" class="exerciseButton whiteButton">Abs</label>
+                        <br>
+                        <input type="checkbox" name="muscles" id="upper-legs" class="vis-hidden" value="Upper Legs">
+                        <label for="upper-legs" id="exerciseupperlegs" class="exerciseButton whiteButton">Upper legs</label>
+                    </div>
+                </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-lg-4 equipment">
                 <h4>What equipment do you have access to?</h4><br>
                 {% if equipment %}
                     {% for e in equipment %}
@@ -160,6 +193,10 @@
         function dropdown(id){
             $("#Instructions"+id).toggle()
         }
+
+        $(".whiteButton").click(function() {
+            $(this).toggleClass("blueButton")
+        });
     </script>
 
 </html>

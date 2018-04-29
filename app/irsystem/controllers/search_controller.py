@@ -6,6 +6,25 @@ from app.irsystem.models.exercise import Exercise
 project_name = "Exercise Planner"
 net_id = "James McManus: jjm439, Kristian Langholm: krl38, Faadhil Moheed: fm363, Darien Lin: dl724, Jatin Bharwani: jsb399"
 
+# AUTOCOMPLETE DATA
+datajson = json.load(open('././extra/jefit/data.json'))
+data = datajson.values()
+m_options = []
+e_options = []
+auto_list = []
+for exercise in data:
+  for m in exercise['muscles']:
+    m_options.append(m)
+    auto_list.append(m)
+  for e in exercise['equipment']:
+    e_options.append(e)
+    auto_list.append(e)
+  
+  auto_list.append(exercise['name'])
+
+# Make set
+auto_set = list(set(auto_list))
+
 @irsystem.route('/', methods=['GET'])
 def search():
   query = request.args.get('search')
@@ -24,19 +43,7 @@ def search():
         option = query
         data= Exercise.get_exercises(name = suggested)
 
-
-
-  return render_template('search.html', name=project_name, netid=net_id, original_query=option, output_message=output_message, data=data)
-
-datajson = json.load(open('././extra/jefit/data.json'))
-data = datajson.values()
-m_options = []
-e_options = []
-for exercise in data:
-  for m in exercise['muscles']:
-    m_options.append(m)
-  for e in exercise['equipment']:
-    e_options.append(e)
+  return render_template('search.html', name=project_name, netid=net_id, original_query=option, output_message=output_message, data=data, autocomplete=auto_set)
 
 @irsystem.route('advanced', methods=['GET'])
 def advanced():
@@ -45,12 +52,19 @@ def advanced():
   equipment = request.args.getlist('equipment')
   routine = request.args.get('routine')
   difficulty = request.args.get('difficulty')
-  print difficulty
   if not query and not muscles and not equipment:
     data = []
     output_message = ''
   else:
-    output_message = "Your search: " + query
+    output_message = query + " " + ' '.join(muscles) + " "  +' '.join(equipment)
     data = Exercise.get_exercises(name = query, muscles=muscles, equipment=equipment, routine=routine, difficulty=difficulty)
   return render_template("advanced.html", muscles=sorted(set(m_options)), equipment=sorted(set(e_options)),
-    output_message=output_message, data=data)
+    output_message=output_message, data=data, routine=routine)
+
+
+
+
+
+
+
+

@@ -3,18 +3,30 @@
         <link rel="stylesheet" href="/static/bootstrap.min.css">
         <link rel="stylesheet" href="/static/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/static/js/autocomplete.js"></script>
     </head>
+
+    <script>
+        window.onload = function() {
+            autocomplete(document.getElementById("input"), {{autocomplete|tojson}});
+        }
+    </script>
 
     <body>
         <form class="form-inline global-search">
             <h1 id="heading">
                 Exercise Planner
             </h1>
+            <br>
+
+            <h2><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Version 1</a></h2>
 
             <br><br>
 
             <div class="form-group">
-                <input id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
+                <div class="autocomplete">
+                    <input autocomplete="off" id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
+                </div>
             </div>
             <button type="submit" class="btn btn-info"> Go! </button>
         </form>
@@ -36,6 +48,15 @@
             {% for d in data %}
                 <div id="output{{loop.index}}" class="row justify-content-lg-center">
                     <h2>{{d['name']}}</h2>
+                        <h3>Average User Score: {{d['rating']}}
+                            <div class="star-ratings-css" title = "{{d['rating']}}%">
+                                <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
+                                <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                            </div>
+                        </h3>
+
+
                     <div class="col-lg-6">
                         {% if d['image'] %}
                             {% for i in d['image'] %}
@@ -43,7 +64,7 @@
                             {% endfor %}
                         {% endif %}
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         {% if d['muscles'] %}
                             <h4>Muscle Groups</h4>
                             {% for m in d['muscles'] %}
@@ -61,10 +82,20 @@
                             <p>{{d['description']}}</p>
                         {% endif %}
                     </div>
+                    <div class="col-lg-2">
+                        {% if d['top5Routines'] %}
+                            <h4>Suggested routines that includes the exercise</h4>
+                            {% for r in d['top5Routines'] %}
+                                <a  target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
+                                <br>
+                            {% endfor %}
+                        {% endif %}
+                    </div>
                 </div>
             {% endfor %}
         {% endif %}
         </div>
     </body>
+
 
 </html>

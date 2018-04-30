@@ -15,7 +15,7 @@
             <div class="col-lg-12">
                 <input id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
             </div>
-            <div class="col-lg-6">
+            <div class="muscles">
                 <h4>Which muscle groups do you wish to target?</h4><br>
                 <div id="bodypartTable2">
                     <div class="buttonTableLeft">
@@ -56,13 +56,44 @@
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 equipment">
+            <div class="equipment">
                 <h4>What equipment do you have access to?</h4><br>
-                {% if equipment %}
-                    {% for e in equipment %}
-                        <input type="checkbox" name="equipment" value="{{e}}"> {{e}}<br>
-                    {% endfor %}
-                {% endif %}
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="bands" value="Bands" />
+                    <label for="bands"><img src="./static/images/bands.png">Bands</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="barbell" value="Barbell" />
+                    <label for="barbell"><img src="./static/images/barbell.png">Barbell</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="bench" value="Bench" />
+                    <label for="bench"><img src="./static/images/bench.png">Bench</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="dumbbell" value="Dumbbell" />
+                    <label for="dumbbell"><img src="./static/images/dumbells.png">Dumbells</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="curl" value="Ez Curl Bar" />
+                    <label for="curl"><img src="./static/images/curl.png">EZ Curl Bar</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="ball" value="Exercise Ball" />
+                    <label for="ball"><img src="./static/images/ball.png">Exercise Ball</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="kettlebell" value="Kettlebell" />
+                    <label for="kettlebell"><img src="./static/images/kettlebell.png">Kettlebell</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="pull" value="Pullup Bar" />
+                    <label for="pull"><img src="./static/images/pullup.png">Pullup Bar</label>
+                </div>
+                <div class="col-lg-4">
+                    <input type="checkbox" name="equipment" id="plate" value="Weight Plate" />
+                    <label for="plate"><img src="./static/images/plate.png">Weight Plate</label>
+                </div>
             </div>
             <div class="col-lg-12">
                 <input type="checkbox" name="routine" value=1> I want a full workout set (Routine for 1 day)<br>

@@ -1,28 +1,50 @@
-@media (min-width:400px){
 .global-search {
-padding:10px;
-text-align:center;
+  padding:10px;
+  text-align:center;
 }
 body {
-padding-top: 2.5%;
-padding-bottom: 15px;
+  padding-top: 2.5%;
+  padding-bottom: 15px;
 }
 .advanced-search {
-text-align: center;
+  text-align: center;
 }
 .global-search .form-control {
-width:500px;
-display:inline-block;
-}
+  width:500px;
+  display:inline-block;
 }
 .search-link{
-display: block;
-text-align: center;
+  display: block;
+  text-align: center;
+}
+.btn{
+  background-color: #4285F4;
+  border: none
+}
+.muscles {
+  float: left;
+}
+.equipment {
+  width: -moz-calc(100% - 920px);
+  width: -webkit-calc(100% - 920px);
+  width: calc(100% - 920px);
+  float: right;
+  margin-right: 130px;
+}
+.equipment label {
+  margin-bottom: 20px;
+  border: solid black;
 }
 
-.btn{
-background-color: #4285F4;
-border: none
+.equipment input:checked + label {
+  border: solid blue;
+}
+.equipment input {
+  display: none;
+}
+.equipment img {
+  width: 100%;
+  height: 130px;
 }
 
 /*Exercise Planner Heading*/
@@ -37,111 +59,88 @@ border: none
   width: 250px;
   height: 250px;
 }
-
 h2, h4 {
 	font-weight: bolder;
 }
 
-/*BODY DIAGRAM*/
-.vis-hidden {
-    border: 0;
-    clip: rect(0 0 0 0);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    width: 1px;
+/*   BODY DIAGRAM    */
+#bodypartTable2 {
+  float: left;
+  width: 790px;
+  height: 500px;
+  background:url(./images/exercisedatabase_background1.jpg) 0 no-repeat;
 }
-#bodypartTable2{
-    width: 790px;
-    height: 500px;
-    background:url(./images/exercisedatabase_background1.jpg) 0 no-repeat;
+#bodypartTable2 input {
+  display: none;
 }
-.buttonTableLeft{
-    margin-top:45px;
-    height: 500px;
-    float:left;
-    width:130px;
-    margin-left:90px;
+.buttonTableLeft {
+  margin-top:45px;
+  height: 500px;
+  float:left;
+  width:130px;
+  margin-left:105px;
 }
-#exercisebiceps
-{
-    margin-top:50px;
+#exercisebiceps {
+  margin-top:50px;
 }
-#exerciseback
-{
-    margin-top:80px;
+#exerciseback {
+  margin-top:80px;
 }
-#exerciseglutes
-{
-    margin-top:40px;
+#exerciseglutes {
+  margin-top:40px;
 }
-#exerciselowerlegs
-{
-    margin-top:60px;
+#exerciselowerlegs {
+  margin-top:60px;
 }
-.buttonTableMiddle{
-    text-align:center;
-    float:left;
-    margin-top:480px;
-    width:260px;
+.buttonTableMiddle {
+  text-align:center;
+  float:left;
+  margin-top:480px;
+  width:260px;
 }
-
 .buttonTableRight{
-    margin-top:50px;
-    height: 500px;
-    float:left;
-    width:200px;
-    margin-left:40px;
+  margin-top:50px;
+  height: 500px;
+  float:left;
+  width:200px;
+  margin-left:40px;
 }
-#exerciseshoulders
-{
+#exercisechest {
+  margin-top:55px;
 }
-#exercisechest
-{
-    margin-top:55px;
+#exerciseforearms {
+  margin-top:45px;
 }
-#exerciseforearms
-{
-    margin-top:45px;
+#exerciseabs {
+     margin-top:55px;
 }
-#exerciseabs
-{
-    margin-top:55px;
+#exerciseupperlegs {
+  margin-top:90px;
 }
-#exerciseupperlegs
-{
-    margin-top:90px;
+.exercisebutton {
+  -webkit-box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 0px 0px;
+  border-radius: 5px;
+  border-bottom-color: #333;
+  border: 1px solid #1A79AD;
+  border-width: 0;
+  box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 0px 0px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  height: 25px;
+  padding-left:14px;
+  padding-right:14px;
+  padding-bottom: 25px;
+  padding-top:10px;
 }
-.exercisebutton
-{
-    -webkit-box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 0px 0px;
-    border-radius: 5px;
-    border-bottom-color: #333;
-    border: 1px solid #1A79AD;
-    border-width: 0;
-    box-shadow: rgba(0, 0, 0, 0.199219) 0px 1px 0px 0px;
-    font-family: "Helvetica Neue", Arial, sans-serif;
-    font-size: 12px;
-    font-weight: bold;
-    height: 25px;
-    padding-left:14px;
-    padding-right:14px;
-    padding-bottom: 25px;
-    padding-top:10px;
-}
-
 .whiteButton {
     background-color: #eee;
     color: #2F9DD8;
 }
-
 .whiteButton:hover {
   cursor:pointer;
   background-color: #ccc;
 }
-
 .blueButton {
   background-color: #2F9DD8;
   color: #FFFFFF;
@@ -149,41 +148,6 @@ h2, h4 {
 .blueButton:hover{
     background-color: #2190C7;
     cursor:pointer;
-}
-#featuredexerciseheader
-{
-    border-bottom:1px solid #d4d4d4;
-    padding-bottom:5px;
-    float:left;
-    width:780px;
-    margin-top:40px;
-}
-#featuredexercisetext
-{
-    color:#4d4f53;
-    font-size:16px;
-    padding-top:20px;
-}
-#exercisedatabaseheader
-{
-    height:15px;
-    width:790px;
-    border-bottom:1px solid #CCC;
-    padding-bottom:5px;
-}
-#bodypartheader
-{
-    border-bottom:1px solid #d4d4d4;
-    padding-bottom:5px;
-    float:left;
-    width:780px;
-    margin-top:40px;
-}
-#bodyparttext
-{
-    color:#4d4f53;
-    font-size:16px;
-    padding-top:20px;
 }
 
 /*AUTOCOMPLETE*/

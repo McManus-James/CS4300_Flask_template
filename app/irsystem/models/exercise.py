@@ -200,40 +200,82 @@ class Exercise:
 
 		# Machine Learning (SVD) to build a workout for a day
 		if routine:
+			
 			if difficulty == None:
 				difficulty =0
+			difficulty = int(difficulty)
+
+			# Build rating vector
 			ratings = np.zeros((1299,1))
 			for i in range(len(app.config['raw_data'])):
 				index = app.config['vector_index_to_exercise'][i]
 				rating = (app.config['raw_data'][index]['rating'])
 				ratings[i] = int(rating)
-			xTr = np.concatenate((tf_idfs[0], tf_idfs[1], tf_idfs[2], tf_idfs[3], ratings/float(182)), axis=1)
-
 			rating = np.zeros((1,1))
 			rating[0] = ((3-int(difficulty))*50)/float(182)
-			xTe = np.concatenate((query_vecs[0], query_vecs[1], query_vecs[2], query_vecs[3], rating), axis=1)
 
-			words_compressed, s, docs_compressed = svds(xTr.T, k=15)
-
+			
+			xTr = np.concatenate((tf_idfs[0], tf_idfs[1], tf_idfs[2], tf_idfs[3]), axis=1)		
+			words_compressed, s, docs_compressed = svds(xTr.T, k=20)
 			docs_compressed = docs_compressed.transpose()
 			docs_compressed = normalize(docs_compressed, axis = 1)
-			xTe = normalize(xTe, axis = 1)
+			
 
+			results = []			
+			if len(muscle_tokens) > 2:
+				print (query_vecs[2].shape)
+				nonzeros =([i for i, e in enumerate(query_vecs[2][0]) if e != 0])
+				for ind in nonzeros:
+					vec = np.zeros(query_vecs[2].shape)
+					vec[0,ind] = query_vecs[2][0,ind]
+					xTe = np.concatenate((query_vecs[0], query_vecs[1], vec, query_vecs[3]), axis=1)
+					print (xTe.shape)
+					xTe = normalize(xTe, axis = 1)
+					xTe_projected = xTe.dot(words_compressed)
+					sims = docs_compressed.dot(xTe_projected.T)
+					sims = sims + (3-int(difficulty) * ratings/300.0)
+					sorted_ind = np.argsort(sims, axis=0 )[::-1]
+					k = np.random.randint(0,5)
+					index = app.config['vector_index_to_exercise'][int(sorted_ind[k])]
+    				entry = app.config['raw_data'][index]
+    				if entry not in result:
+    					result.append(entry)
 
-			xTe_projected = xTe.dot(words_compressed)
+    		xTe = np.concatenate((query_vecs[0], query_vecs[1], query_vecs[2], query_vecs[3]), axis=1)
+    		xTe = normalize(xTe, axis = 1)
+    		xTe_projected = xTe.dot(words_compressed)
     		sims = docs_compressed.dot(xTe_projected.T)
+    		sims = sims + (3-int(difficulty) * ratings/300.0)
 
 
+    		# Incorporate user ratings - beginners prefer exercises that are rated higher
+    		# Experienced users don't care about popularity but more about query
     		sorted_ind = np.argsort(sims, axis=0 )[::-1]
-    		result = []
+
+    		num_exercises = 4
+    		if difficulty == 0:
+    			num_exercises = np.random.randint(4,6)
+    		elif difficulty == 1:
+    			num_exercises = np.random.randint(5,7)
+    		elif difficulty == 2:
+    			num_exercises = np.random.randint(6,8)
+
     		i=0
-    		while i<(5 + int(difficulty)):
+    		while len(result)<num_exercises:
+    			select = np.random.randint(0,10)
+    			if select <= 3:
+    				i+=1
+    				continue
     			index = app.config['vector_index_to_exercise'][int(sorted_ind[i])]
     			entry = app.config['raw_data'][index]
+    			if entry in result:
+    				i+=1
+    				continue
     			if 'stretch' in entry['name'].lower() or 'relaxation' in entry['name'].lower():
     				result = [entry] + result
     			else:
     				result.append(entry)
     			i+=1
+
 
 		return result

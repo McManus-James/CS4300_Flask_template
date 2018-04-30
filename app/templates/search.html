@@ -7,55 +7,113 @@
     </head>
 
     <script>
+        var getUrlParameter = function getUrlParameter(sParam) {
+            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+                sURLVariables = sPageURL.split('&'),
+                sParameterName,
+                i;
+
+            for (i = 0; i < sURLVariables.length; i++) {
+                sParameterName = sURLVariables[i].split('=');
+
+                if (sParameterName[0] === sParam) {
+                    return sParameterName[1] === undefined ? true : sParameterName[1];
+                }
+            }
+        };
         window.onload = function() {
             autocomplete(document.getElementById("input"), {{autocomplete|tojson}});
+
+            if (getUrlParameter('search')) {
+                $('.container').show();
+            } else {
+                $('.container').hide();
+            }
         }
     </script>
 
+    <style>
+        body {
+            background-image: url("/static/images/workout3.jpg");
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+
+        .header {
+            background-color: #fff;
+            background-color: rgba(255,255,255, 0.85);
+            margin-bottom: 10px;
+        }
+
+        .container {
+            background-color: #fff;
+            background-color: rgba(255,255,255, 0.85);
+            margin-bottom: 10px;
+            padding-right: 20px;
+        }
+
+        #heading {
+            color: black;
+            font-size: 100px;
+        }
+
+        .links {
+            color: black;
+            font-weight: bolder;
+            font-size: 20px;
+            display: inline;
+        }
+
+    </style>
+
     <body>
-        <form class="form-inline global-search">
-            <h1 id="heading">
-                Exercise Planner
-            </h1>
-            <br>
 
-            <h2><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Version 1</a></h2>
+        <div class="header">
+            <form class="form-inline global-search">
+                <h1 id="heading">
+                    Exercise Planner
+                </h1>
+                <br>
+                <p class="links"><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Version 1</a></p>
+                <p class="links"><a class="search-link" href="{{ url_for('irsystem.advanced') }}">Advanced Search</a></p>
 
-            <br><br>
+                <br><br>
 
-            <div class="form-group">
-                <div class="autocomplete">
-                    <input autocomplete="off" id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
+                <div class="form-group">
+                    <div class="autocomplete">
+                        <input autocomplete="off" id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
+                    </div>
                 </div>
-            </div>
-            <button type="submit" class="btn btn-info"> Go! </button>
-        </form>
-        <a class="search-link" href="{{ url_for('irsystem.advanced') }}">advanced search </a>
-        <form class="form-inline global-search">
-            <div class="form-group">
-                {% if output_message %}
-                    <h1>Your search was:{{output_message}}</h1>
-                    <br>
-                {% endif %}
-                {% if original_query %}
-                    <h5>Did you want to search for: <a href="?search={{original_query}}&suggest=false">{{original_query}}</a></h5>
-                {% endif %}
-            </div>
-        </form>
+                <button type="submit" class="btn btn-info"> Go! </button>
+            </form>
 
-        <div class="container">
+
+
+            <form class="form-inline global-search">
+                <div class="form-group">
+                    {% if output_message %}
+                        <h1>{{output_message}}</h1>
+                        <br>
+                    {% endif %}
+                    {% if original_query %}
+                        <h5>Did you want to search for: <a href="?search={{original_query}}&suggest=false">{{original_query}}</a></h5>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+
         {% if data %}
             {% for d in data %}
-                <div id="output{{loop.index}}" class="row justify-content-lg-center output">
+            <div class="container">
+                <div class="row justify-content-lg-center output">
                     <h2>{{d['name']}}</h2>
-                        <h3>Average User Score: {{'{0:.2f}'.format(d['rating'])}}
+                        <h3>Average User Score: {{"No User Ratings" if d['rating'] == 0 else '{0:.2f}'.format(d['rating'])}}
                             <div class="star-ratings-css" title = "{{d['rating']}}%">
                                 <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
                                 <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                                 <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                             </div>
                         </h3>
-
 
                     <div class="col-lg-6">
                         {% if d['image'] %}
@@ -84,7 +142,7 @@
                     </div>
                     <div class="col-lg-2">
                         {% if d['top5Routines'] %}
-                            <h4>Suggested routines that includes the exercise</h4>
+                            <h4>Suggested routines that include the exercise</h4>
                             {% for r in d['top5Routines'] %}
                                 <a  target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
                                 <br>
@@ -92,9 +150,9 @@
                         {% endif %}
                     </div>
                 </div>
+            </div>
             {% endfor %}
         {% endif %}
-        </div>
     </body>
 
     {% if output_message %}

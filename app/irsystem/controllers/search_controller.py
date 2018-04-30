@@ -45,8 +45,10 @@ def search():
     
     if data == ['No_Valid_Query_Terms']:
       data = []
+    
+  top5rankingSort = sorted(data, key= lambda x: x['rating'], reverse = True)
 
-  return render_template('search.html', name=project_name, netid=net_id, original_query=option, output_message=output_message, data=data, autocomplete=auto_set)
+  return render_template('search.html', name=project_name, netid=net_id, original_query=option, output_message=output_message, data=data, dataorder = top5rankingSort, autocomplete=auto_set)
 
 @irsystem.route('advanced', methods=['GET'])
 def advanced():

@@ -85,7 +85,7 @@ class Exercise:
 			return self.advanced_search(name, muscles, equipment, routine, difficulty)
 
 	@classmethod
-	def simple_search(self, query, desc_w=.20, equip_w=.10, musc_w=.30, name_w=.15, rating_w = .25):
+	def simple_search(self, query, desc_w=.25, equip_w=.25, musc_w=.25, name_w=.25):
 		dics = [app.config['description_vocab_to_index'], app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
 		tf_idfs = [app.config['desc_tfidf'], app.config['equip_tfidf'], app.config['muscles_tfidf'], app.config['name_tfidf']]
 
@@ -113,21 +113,12 @@ class Exercise:
 		for i in range(len(tf_idfs)):
 			sim_matrices.append(np.dot(tf_idfs[i], query_vecs[i].T))
 
-		ratings = []
-		for i in range(len(sim_matrices[0])):
-			eID = app.config['vector_index_to_exercise'][i]
-			rating = app.config['raw_data'][eID]['rating']/100
-			ratings.append([rating])
-		sim_matrices.append( np.array(ratings) )
-
-		weighted_sim = (desc_w*sim_matrices[0] + equip_w*sim_matrices[1] + musc_w*sim_matrices[2] + name_w*sim_matrices[3] + rating_w * sim_matrices[4])
+		weighted_sim = (desc_w*sim_matrices[0] + equip_w*sim_matrices[1] + musc_w*sim_matrices[2] + name_w*sim_matrices[3])
 		sorted_ind = np.argsort(weighted_sim, axis=0 )[::-1]
-
-		top5rankingSort = sorted([i for index in sorted_ind[:5] for i in index], key= lambda x: app.config['raw_data'][app.config['vector_index_to_exercise'][int(x)]]['rating'], reverse = True)
 		
 		result = []
 		for i in range(5):
-			index = app.config['vector_index_to_exercise'][int(top5rankingSort[i])]
+			index = app.config['vector_index_to_exercise'][int(sorted_ind[i])]
 			entry = app.config['raw_data'][index]
 			result.append(entry)
 			pat = re.compile('\d+\.\)');

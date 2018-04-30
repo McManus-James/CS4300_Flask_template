@@ -117,7 +117,7 @@ class Exercise:
 		sorted_ind = np.argsort(weighted_sim, axis=0 )[::-1]
 		
 		result = []
-		for i in range(5):
+		for i in range(15):
 			index = app.config['vector_index_to_exercise'][int(sorted_ind[i])]
 			entry = app.config['raw_data'][index]
 			result.append(entry)

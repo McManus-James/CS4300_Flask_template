@@ -66,11 +66,12 @@
                     Exercise Planner
                 </h1>
                 <br>
-                <p class="links"><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Version 1</a></p>
-                <p class="links"><a class="search-link" href="{{ url_for('irsystem.advanced') }}">Advanced Search</a></p>
+                <p class="links"><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Prototype 1</a></p>
+                <br>
+                <p class="links"><a target="_blank" href="https://exercise-planner1-v2.herokuapp.com/">Prototype 2</a></p>
 
                 <br><br>
-
+                <p class="links"><a class="search-link" href="{{ url_for('irsystem.advanced') }}">Advanced Search</a></p>
                 <div class="form-group">
                     <div class="autocomplete">
                         <input autocomplete="off" id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
@@ -92,7 +93,7 @@
             <form class="form-inline global-search">
                 <div class="form-group">
                     {% if output_message %}
-                        <h1>{{output_message}}</h1>
+                        <h1>Search Query: {{output_message}}</h1>
                         <br>
                     {% endif %}
                     {% if original_query %}

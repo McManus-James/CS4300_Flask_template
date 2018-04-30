@@ -39,7 +39,7 @@ def search():
     if suggest != "false":
       suggested = Exercise.simple_suggested(query)
       if (suggested.lower() != query.lower()):
-        output_message = "Currently searching for: " + suggested
+        output_message = "" + suggested
         option = query
         data= Exercise.get_exercises(name = Exercise.expanded_query(suggested))
     

@@ -2,10 +2,6 @@
   padding:10px;
   text-align:center;
 }
-body {
-  padding-top: 2.5%;
-  padding-bottom: 15px;
-}
 .advanced-search {
   text-align: center;
 }
@@ -61,6 +57,43 @@ body {
 }
 h2, h4 {
 	font-weight: bolder;
+}
+
+/*Simple Stuff*/
+body {
+  background-image: url("/static/images/workout3.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  padding-top: 2.5%;
+  padding-bottom: 2.5%;
+}
+
+.header {
+  background-color: #fff;
+  background-color: rgba(255,255,255, 0.85);
+  margin-bottom: 10px;
+  border: 2px solid black;
+}
+
+.container {
+  background-color: #fff;
+  background-color: rgba(255,255,255, 0.85);
+  margin-bottom: 10px;
+  padding-right: 20px;
+  border: 2px solid black;
+  text-align: center;
+}
+
+#heading {
+  color: black;
+  font-size: 100px;
+}
+
+.links {
+  color: black;
+  font-weight: bolder;
+  font-size: 20px;
+  display: inline;
 }
 
 /*   BODY DIAGRAM    */
@@ -209,6 +242,7 @@ Credits: https://codepen.io/Bluetidepro/pen/GkpEa
   position: relative;
   padding: 0;
   text-shadow: 0px 1px 0 #a2a2a2;
+  margin: 0 auto;
 }
 
 .star-ratings-css-top{

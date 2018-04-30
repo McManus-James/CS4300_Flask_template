@@ -10,8 +10,6 @@ from scipy.sparse.linalg import svds
 from sklearn.preprocessing import normalize
 # import matplotl/ib.pyplot as plt
 
-NUM_RESULTS = 5
-
 class Exercise:
 
 	alternate_spellings = {"quadriceps":"quads quad","quadricep":"quads quad","quads":"quad","quad":"quads",

@@ -67,5 +67,7 @@ def advanced():
   if data == ['No_Valid_Query_Terms']:
     data = []
   
+  top5rankingSort = sorted(data, key= lambda x: x['rating'], reverse = True)
+
   return render_template("advanced.html", muscles=sorted(set(m_options)), equipment=sorted(set(e_options)),
-    output_message=output_message, data=data, routine=routine)
+    output_message=output_message, data=data, dataorder = top5rankingSort, routine=routine)

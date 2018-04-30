@@ -4,6 +4,32 @@
         <link rel="stylesheet" href="/static/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     </head>
+    <script>
+    $(function() {
+            $('#order').click(function() {
+                if ($('#order').is(':checked')) {
+                    var hideunordered = document.getElementsByClassName("unordered"); 
+                    for(var i = 0; i < hideunordered.length; i++){
+                        hideunordered[i].style.cssText = "display: none !important"; 
+                    }
+                    var showordered = document.getElementsByClassName("ordered"); 
+                    for(var i = 0; i < showordered.length; i++){
+                        showordered[i].style.cssText = "display: block !important"; 
+                    }
+                } 
+                else {
+                    var showunordered = document.getElementsByClassName("unordered"); 
+                    for(var i = 0; i < showunordered.length; i++){
+                        showunordered[i].style.cssText = "display: block !important"; 
+                    }
+                    var hideordered = document.getElementsByClassName("ordered"); 
+                    for(var i = 0; i < hideordered.length; i++){
+                        hideordered[i].style.cssText = "display: none !important"; 
+                    }
+                }
+            });
+        });
+    </script>
     <body>
         <form class="form global-search row">
             <h1 style="font-size: 55px; font-family:Futura; color: #4285F4">
@@ -15,6 +41,15 @@
             <div class="col-lg-12">
                 <input id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
             </div>
+            <div> 
+                <br>
+                <br>
+                <label class="switch">
+                   <input id="order" type="checkbox"></button>
+                  <span class="slider round"></span> 
+                </label>
+                Order by Rating
+            </div> 
             <div class="muscles">
                 <h4>Which muscle groups do you wish to target?</h4><br>
                 <div id="bodypartTable2">
@@ -117,9 +152,58 @@
                 {% if output_message %}
                     <h1>Your search: {{output_message}}</h1>
                 {% endif %}
+
                 {% if data %}
                     {% for d in data %}
-                        <div class="row justify-content-lg-center output">
+                        <div class="row justify-content-lg-center output unordered">
+                            <h2>{{d['name']}}</h2>
+                            <h3>Average User Score: {{d['rating']}}
+                                <div class="star-ratings-css" title = "{{d['rating']}}%">
+                                    <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
+                                    <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                </div>
+                            </h3>
+                            <div class="col-lg-6">
+                                {% if d['image'] %}
+                                    {% for i in d['image'] %}
+                                        <img class="exercises" src="{{i}}">
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                            <div class="col-lg-4">
+                                {% if d['muscles'] %}
+                                    <h4>Muscle Groups</h4>
+                                    {% for m in d['muscles'] %}
+                                        <p> {{m}} </p>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if d['equipment'] %}
+                                    <h4>Equipment Needed</h4>
+                                    {% for e in d['equipment'] %}
+                                        <p> {{e}} </p>
+                                    {% endfor %}
+                                {% endif %}
+                                {% if d['description'] %}
+                                    <h4>Instructions</h4>
+                                    <p>{{d['description']}}</p>
+                                {% endif %}
+
+                            </div>
+                            <div class="col-lg-2">
+                                {% if d['top5Routines'] %}
+                                    <h4>Suggested routines that includes the exercise</h4>
+                                    {% for r in d['top5Routines'] %}
+                                        <a target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
+                                        <br>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+                    {% for d in dataorder %}
+                        <div class="row justify-content-lg-center output ordered">
                             <h2>{{d['name']}}</h2>
                             <h3>Average User Score: {{d['rating']}}
                                 <div class="star-ratings-css" title = "{{d['rating']}}%">
@@ -241,8 +325,6 @@
                         searchregexp = new RegExp("\\b" + term + "\\b", "gi");
                         $(this).html($(this).html().replace(searchregexp,"<span class = 'highlight'>"+term+"</span>"));
                     }
-
-
                 }
                 });
             });

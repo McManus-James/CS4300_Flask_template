@@ -17,6 +17,7 @@
   background-color: #4285F4;
   border: none
 }
+
 .muscles {
   float: left;
 }
@@ -263,4 +264,9 @@ Credits: https://codepen.io/Bluetidepro/pen/GkpEa
     top: 0;
     left: 0;
     z-index: 0;
+}
+
+.highlight {
+  background-color: #FFFF00;
+  font-weight: bold;
 }

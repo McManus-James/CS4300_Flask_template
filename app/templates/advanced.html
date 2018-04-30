@@ -119,15 +119,15 @@
                 {% endif %}
                 {% if data %}
                     {% for d in data %}
-                        <div class="row justify-content-lg-center">
+                        <div class="row justify-content-lg-center output">
                             <h2>{{d['name']}}</h2>
                             <h3>Average User Score: {{d['rating']}}
-                            <div class="star-ratings-css" title = "{{d['rating']}}%">
-                                <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
-                                <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                                <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                            </div>
-                        </h3>
+                                <div class="star-ratings-css" title = "{{d['rating']}}%">
+                                    <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
+                                    <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                    <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                </div>
+                            </h3>
                             <div class="col-lg-6">
                                 {% if d['image'] %}
                                     {% for i in d['image'] %}
@@ -171,7 +171,7 @@
                     <h1>Your routine for: {{output_message}}</h1>
                 {% endif %}
                 {% if data %}
-                    <div class="routine">
+                    <div class="routine output">
                         {% for d in data %}
                             <div id="exercise" class="col-lg-6">
                                 <h3 class = "col-lg-12">Exercise {{loop.index}}.) {{d['name']}}</h3>
@@ -229,5 +229,24 @@
             $(this).toggleClass("blueButton")
         });
     </script>
+
+    {% if output_message %}
+        <script>
+            $( document ).ready(function() {
+                $('.output').each(function() {
+                var query = "{{output_message}}".split(" ");
+                for (var i = 0; i < query.length; i++) {
+                    term = query[i];
+                    if (term.length > 0){
+                        searchregexp = new RegExp("\\b" + term + "\\b", "gi");
+                        $(this).html($(this).html().replace(searchregexp,"<span class = 'highlight'>"+term+"</span>"));
+                    }
+
+
+                }
+                });
+            });
+        </script>
+    {% endif %}
 
 </html>

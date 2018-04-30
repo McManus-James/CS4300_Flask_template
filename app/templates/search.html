@@ -33,7 +33,7 @@
     </script>
 
     <body>
-        
+
         <div class="header">
             <form class="form-inline global-search">
                 <h1 id="heading">
@@ -42,7 +42,7 @@
                 <br>
                 <p class="links"><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Version 1</a></p>
                 <p class="links"><a class="search-link" href="{{ url_for('irsystem.advanced') }}">Advanced Search</a></p>
-                
+
                 <br><br>
 
                 <div class="form-group">
@@ -52,8 +52,8 @@
                 </div>
                 <button type="submit" class="btn btn-info"> Go! </button>
             </form>
-            
-            
+
+
 
             <form class="form-inline global-search">
                 <div class="form-group">
@@ -71,7 +71,7 @@
         {% if data %}
             {% for d in data %}
             <div class="container">
-                <div class="row justify-content-lg-center">
+                <div class="row justify-content-lg-center output">
                     <h2>{{d['name']}}</h2>
                         <h3>Average User Score: {{"No User Ratings" if d['rating'] == 0 else '{0:.2f}'.format(d['rating'])}}
                             <div class="star-ratings-css" title = "{{d['rating']}}%">
@@ -121,5 +121,22 @@
         {% endif %}
     </body>
 
+    {% if output_message %}
+        <script>
+            $( document ).ready(function() {
+                $('.output').each(function() {
+                var query = "{{output_message}}".split(" ");
+                for (var i = 0; i < query.length; i++) {
+                    term = query[i];
+                    if (term.length > 0){
+                        searchregexp = new RegExp("\\b" + term + "\\b", "gi");
+                        $(this).html($(this).html().replace(searchregexp,"<span class = 'highlight'>"+term+"</span>"));
+                    }
 
+
+                }
+                });
+            });
+        </script>
+    {% endif %}
 </html>

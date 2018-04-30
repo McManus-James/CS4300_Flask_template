@@ -104,7 +104,6 @@ class Exercise:
 			df = np.sum(cpy, axis=0)
 			df.reshape(df.shape[0] , 1)
 			query_vecs[i] = np.multiply(query_vecs[i].T, np.log(1299 / (1+df)))
-			# print query_vecs[i].shape
 
 		if all([np.count_nonzero(x) == 0 for x in query_vecs]):
 			return "No_Valid_Query_Terms".split()
@@ -223,13 +222,11 @@ class Exercise:
 
 			results = []			
 			if len(muscle_tokens) > 2:
-				print (query_vecs[2].shape)
 				nonzeros =([i for i, e in enumerate(query_vecs[2][0]) if e != 0])
 				for ind in nonzeros:
 					vec = np.zeros(query_vecs[2].shape)
 					vec[0,ind] = query_vecs[2][0,ind]
 					xTe = np.concatenate((query_vecs[0], query_vecs[1], vec, query_vecs[3]), axis=1)
-					print (xTe.shape)
 					xTe = normalize(xTe, axis = 1)
 					xTe_projected = xTe.dot(words_compressed)
 					sims = docs_compressed.dot(xTe_projected.T)

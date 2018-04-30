@@ -43,7 +43,7 @@ def search():
         option = query
         data= Exercise.get_exercises(name = Exercise.expanded_query(suggested))
     
-    if data[0] == 'No_Valid_Query_Terms':
+    if data == ['No_Valid_Query_Terms']:
       data = []
 
   return render_template('search.html', name=project_name, netid=net_id, original_query=option, output_message=output_message, data=data, autocomplete=auto_set)
@@ -62,7 +62,7 @@ def advanced():
     output_message = query + " " + ' '.join(muscles) + " "  +' '.join(equipment)
     data = Exercise.get_exercises(name = query, muscles=muscles, equipment=equipment, routine=routine, difficulty=difficulty)
 
-  if data[0] == 'No_Valid_Query_Terms':
+  if data == ['No_Valid_Query_Terms']:
     data = []
   
   return render_template("advanced.html", muscles=sorted(set(m_options)), equipment=sorted(set(e_options)),

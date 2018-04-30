@@ -39,6 +39,7 @@ class Exercise:
 	def simple_suggested(self, query):
 		dics = [app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index'], app.config['description_vocab_to_index']]
 		top_words = []
+		top_words.extend([unicode(key) for key in self.alternate_spellings.keys()])
 		for dic in dics:
 			top_words.extend(dic.keys())
 		query_tokens = nltk.word_tokenize(query.lower())

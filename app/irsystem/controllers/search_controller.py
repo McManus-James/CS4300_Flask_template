@@ -19,7 +19,7 @@ for exercise in data:
   for e in exercise['equipment']:
     e_options.append(e)
     auto_list.append(e)
-  
+
   auto_list.append(exercise['name'])
 
 # Make set
@@ -33,7 +33,7 @@ def search():
     data = []
     output_message = ''
   else:
-    output_message = "Your search was: " + query
+    output_message = query
     suggest = request.args.get('suggest')
     data = Exercise.get_exercises(name = Exercise.expanded_query(query))
     if suggest != "false":

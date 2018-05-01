@@ -77,6 +77,7 @@
 
                 <div class="muscles col-lg-5">
                     <h4>Which muscle groups do you wish to target?</h4><br>
+                    <!-- Code from jefit.com -->
                     <div id="bodypartTable2">
                         <div class="buttonTableLeft">
                             <input type="checkbox" name="muscles" id="triceps" class="vis-hidden" value="Triceps">
@@ -197,7 +198,7 @@
             {% if data %}
                 {% for d in data %}
                 <div class="container unordered">
-                    <div class="row justify-content-lg-center output unordered">
+                    <div class="row justify-content-lg-center output">
                         <h2>{{d['name']}}</h2>
                         <h3>Average User Score: {{d['rating']}}
                             <div class="star-ratings-css" title = "{{d['rating']}}%">
@@ -230,7 +231,6 @@
                                 <h4>Instructions</h4>
                                 <p>{{d['description']}}</p>
                             {% endif %}
-
                         </div>
                         <div class="col-lg-2">
                             {% if d['top5Routines'] %}
@@ -340,7 +340,6 @@
                 {% endfor %}
             {% endif %}
         {% endif %}
-        <!-- </div> -->
     </body>
     <script type="text/javascript">
         function dropdown(id){

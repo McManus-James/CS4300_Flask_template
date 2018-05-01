@@ -8,23 +8,23 @@
         $(function() {
             $('#order').click(function() {
                 if ($('#order').is(':checked')) {
-                    var hideunordered = document.getElementsByClassName("unordered"); 
+                    var hideunordered = document.getElementsByClassName("unordered");
                     for(var i = 0; i < hideunordered.length; i++){
-                        hideunordered[i].style.cssText = "display: none !important"; 
+                        hideunordered[i].style.cssText = "display: none !important";
                     }
-                    var showordered = document.getElementsByClassName("ordered"); 
+                    var showordered = document.getElementsByClassName("ordered");
                     for(var i = 0; i < showordered.length; i++){
-                        showordered[i].style.cssText = "display: block !important"; 
+                        showordered[i].style.cssText = "display: block !important";
                     }
-                } 
+                }
                 else {
-                    var showunordered = document.getElementsByClassName("unordered"); 
+                    var showunordered = document.getElementsByClassName("unordered");
                     for(var i = 0; i < showunordered.length; i++){
-                        showunordered[i].style.cssText = "display: block !important"; 
+                        showunordered[i].style.cssText = "display: block !important";
                     }
-                    var hideordered = document.getElementsByClassName("ordered"); 
+                    var hideordered = document.getElementsByClassName("ordered");
                     for(var i = 0; i < hideordered.length; i++){
-                        hideordered[i].style.cssText = "display: none !important"; 
+                        hideordered[i].style.cssText = "display: none !important";
                     }
                 }
             });
@@ -41,15 +41,16 @@
             <div class="col-lg-12">
                 <input id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
             </div>
-            <div> 
+            <div>
                 <br>
                 <br>
                 <label class="switch">
                    <input id="order" type="checkbox"></button>
-                  <span class="slider round"></span> 
+                  <span class="slider round"></span>
                 </label>
                 Order by Rating
-            </div> 
+            </div>
+            <!-- Following body diagram from jefit.com-->
             <div class="muscles">
                 <h4>Which muscle groups do you wish to target?</h4><br>
                 <div id="bodypartTable2">

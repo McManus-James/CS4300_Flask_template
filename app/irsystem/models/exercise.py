@@ -8,7 +8,6 @@ from flask import current_app as app
 import Levenshtein
 from scipy.sparse.linalg import svds
 from sklearn.preprocessing import normalize
-# import matplotl/ib.pyplot as plt
 
 class Exercise:
 
@@ -51,24 +50,6 @@ class Exercise:
 					max_distance = Levenshtein.distance(token, word)
 			suggested_query.append(top_suggestion)
 		return ' '.join(suggested_query)
-
-	# @classmethod
-	# def advanced_suggested(self, query, muscles, equipment, routine):
-	# 	dics = [app.config['equipment_vocab_to_index'], app.config['muscles_vocab_to_index'], app.config['name_vocab_to_index']]
-	# 	fields = (nltk.word_tokenize(query), dics[2]), (muscles, dics[1]), (equipment, dics[0])
-	# 	suggested_fields = []
-	# 	for field_tokens in fields:
-	# 		suggested_query = []
-	# 		for token in field_tokens:
-	# 			top_suggestion = token
-	# 			max_distance = 3 #can be subbed for anything
-	# 			for word in field[1].keys():
-	# 				if Levenshtein.distance(token, word) <= max_distance:
-	# 					top_suggestion = word
-	# 					max_distance = Levenshtein.distance(token, word)
-	# 			suggested_query.append(top_suggestion)
-	# 		suggested_fields.append(suggested_query)
-
 
 	@classmethod
 	#Search method. Simple search takes in name parameter as query and
@@ -120,10 +101,12 @@ class Exercise:
 			index = app.config['vector_index_to_exercise'][int(sorted_ind[i])]
 			entry = app.config['raw_data'][index]
 			result.append(entry)
-			pat = re.compile('\d+\.\)');
-			newline = re.compile('\n')
-			for r in result:
-				r['description'] = re.sub(pat, '\n', r['description'])
+		
+		pat = re.compile('\d+\.\)');
+		newline = re.compile('\n')
+		for r in result:
+			r['description'] = re.sub(pat, '\n', r['description'])
+
 		return result
 
 	@classmethod
@@ -194,6 +177,11 @@ class Exercise:
 			entry = app.config['raw_data'][index]
 			result.append(entry)
 
+		pat = re.compile('\d+\.\)')
+		newline = re.compile('\n')
+		for r in result:
+			r['description'] = re.sub(pat, '\n', r['description'])
+
 		if not routine:
 			return result
 
@@ -238,6 +226,11 @@ class Exercise:
     				if entry not in result:
     					result.append(entry)
 
+    		pat = re.compile('\d+\.\)')
+    		newline = re.compile('\n')
+    		for r in results:
+    			r['description'] = re.sub(pat, '\n', r['description'])
+
     		xTe = np.concatenate((query_vecs[0], query_vecs[1], query_vecs[2], query_vecs[3]), axis=1)
     		xTe = normalize(xTe, axis = 1)
     		xTe_projected = xTe.dot(words_compressed)
@@ -273,6 +266,5 @@ class Exercise:
     			else:
     				result.append(entry)
     			i+=1
-
 
 		return result

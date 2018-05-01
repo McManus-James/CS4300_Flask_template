@@ -3,8 +3,21 @@
         <link rel="stylesheet" href="/static/bootstrap.min.css">
         <link rel="stylesheet" href="/static/main.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="/static/js/autocomplete.js"></script>
     </head>
+
     <script>
+
+        window.onload = function() {
+            autocomplete(document.getElementById("input"), {{autocomplete|tojson}});
+
+            if (getUrlParameter('search') || getUrlParameter('muscles') || getUrlParameter('equipment')) {
+                $('.container').show();
+            } else {
+                $('.container').hide();
+            }
+        }
+
         $(function() {
             $('#order').click(function() {
                 if ($('#order').is(':checked')) {
@@ -29,280 +42,313 @@
                 }
             });
         });
+
     </script>
+
     <body>
-        <form class="form global-search row">
-            <h1 style="font-size: 55px; font-family:Futura; color: #4285F4">
-                Exercise Planner
-            </h1>
 
-            <br><br>
-
-            <div class="col-lg-12">
-                <input id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
-            </div>
-            <div> 
+        <div class="content col-lg-12">
+            <form class="form-inline global-search">
+                <h1 id="heading">
+                    Exercise Planner
+                </h1>
                 <br>
+                <p class="links"><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Prototype 1</a></p>
                 <br>
-                <label class="switch">
-                   <input id="order" type="checkbox"></button>
-                  <span class="slider round"></span> 
-                </label>
-                Order by Rating
-            </div> 
-            <div class="muscles">
-                <h4>Which muscle groups do you wish to target?</h4><br>
-                <div id="bodypartTable2">
-                    <div class="buttonTableLeft">
-                        <input type="checkbox" name="muscles" id="triceps" class="vis-hidden" value="Triceps">
-                        <label for="triceps" class="exerciseButton whiteButton">Triceps</label>
-                        <br>
-                        <input type="checkbox" name="muscles" id="biceps" class="vis-hidden" value="Biceps">
-                        <label for="biceps" id="exercisebiceps" class="exerciseButton whiteButton">Biceps</label>
-                        <br>
-                        <input type="checkbox" name="muscles" id="back" class="vis-hidden" value="Back">
-                        <label for="back" id="exerciseback" class="exerciseButton whiteButton">Back</label>
-                        <br>
-                        <input type="checkbox" name="muscles" id="glutes" class="vis-hidden" value="Glutes">
-                        <label for="glutes" id="exerciseglutes" class="exerciseButton whiteButton">Glutes</label>
-                        <br>
-                        <input type="checkbox" id="lower-legs" name="muscles" class="vis-hidden" value="Lower Legs">
-                        <label for="lower-legs" id="exerciselowerlegs" class="exerciseButton whiteButton">Lower Legs</label>
-                    </div>
-                    <div class="buttonTableMiddle">
-                        <input type="checkbox" name="muscles" id="cardio" class="vis-hidden" value="Cardio">
-                        <label for="cardio" class="exerciseButton whiteButton">Cardio</label>
-                    </div>
-                    <div class="buttonTableRight">
-                        <input type="checkbox" name="muscles" id="shoulders" class="vis-hidden" value="Shoulders">
-                        <label for="shoulders" class="exerciseButton whiteButton">Shoulders</label>
-                        <br>
-                        <input type="checkbox" name="muscles" id="chest" class="vis-hidden" value="Chest">
-                        <label for="chest" id="exercisechest" class="exerciseButton whiteButton">Chest</label>
-                        <br>
-                        <input type="checkbox" name="muscles" id="forearm" class="vis-hidden" value="Forearm">
-                        <label for="forearm" id="exerciseforearms" class="exerciseButton whiteButton">Forearms</label>
-                        <br>
-                        <input type="checkbox" name="muscles" id="abs" class="vis-hidden" value="Abs">
-                        <label for="abs" id="exerciseabs" class="exerciseButton whiteButton">Abs</label>
-                        <br>
-                        <input type="checkbox" name="muscles" id="upper-legs" class="vis-hidden" value="Upper Legs">
-                        <label for="upper-legs" id="exerciseupperlegs" class="exerciseButton whiteButton">Upper legs</label>
+                <p class="links"><a target="_blank" href="https://exercise-planner1-v2.herokuapp.com/">Prototype 2</a></p>
+                <br>
+                <p class="links"><a class="search-link" href="/">Simple Search</a></p>
+                <br><br>
+                <div class="form-group">
+                    <div class="autocomplete">
+                        <input autocomplete="off" id="input" type="text" name="search" class="form-control" placeholder="Example: Cable Decline Press">
                     </div>
                 </div>
-            </div>
-            <div class="equipment">
-                <h4>What equipment do you have access to?</h4><br>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="bands" value="Bands" />
-                    <label for="bands"><img src="./static/images/bands.png">Bands</label>
-                </div>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="barbell" value="Barbell" />
-                    <label for="barbell"><img src="./static/images/barbell.png">Barbell</label>
-                </div>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="bench" value="Bench" />
-                    <label for="bench"><img src="./static/images/bench.png">Bench</label>
-                </div>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="dumbbell" value="Dumbbell" />
-                    <label for="dumbbell"><img src="./static/images/dumbells.png">Dumbells</label>
-                </div>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="curl" value="Ez Curl Bar" />
-                    <label for="curl"><img src="./static/images/curl.png">EZ Curl Bar</label>
-                </div>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="ball" value="Exercise Ball" />
-                    <label for="ball"><img src="./static/images/ball.png">Exercise Ball</label>
-                </div>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="kettlebell" value="Kettlebell" />
-                    <label for="kettlebell"><img src="./static/images/kettlebell.png">Kettlebell</label>
-                </div>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="pull" value="Pullup Bar" />
-                    <label for="pull"><img src="./static/images/pullup.png">Pullup Bar</label>
-                </div>
-                <div class="col-lg-4">
-                    <input type="checkbox" name="equipment" id="plate" value="Weight Plate" />
-                    <label for="plate"><img src="./static/images/plate.png">Weight Plate</label>
-                </div>
-            </div>
-            <div class="col-lg-12">
-                <input type="checkbox" name="routine" value=1> I want a full workout set (Routine for 1 day)<br>
-            </div>
-             <div class="col-lg-12">
-                <br>Select Difficulty of Routine:<br>
-                <input type="radio" name="difficulty" value=0> Beginner
-                <input type="radio" name="difficulty" value=1> Moderate
-                <input type="radio" name="difficulty" value=2> Advanced
 
+                <div id="switch"> 
+                    <br>
+                    <label class="switch">
+                        <input id="order" type="checkbox"></button>
+                        <span class="slider round"></span> 
+                    </label>
+                    Order by Rating
+                </div>
 
-            </div>
-            <div class="col-lg-12">
-                <button type="submit" class="btn btn-info"> Go! </button>
-            </div>
-        </form>
-        <a class="search-link col-lg-12" href="/">simple search </a>
+                <br><br>
 
-        <div class="container">
-            {% if not routine %}
-                {% if output_message %}
-                    <h1>Your search: {{output_message}}</h1>
-                {% endif %}
+                <div class="muscles col-lg-5">
+                    <h4>Which muscle groups do you wish to target?</h4><br>
+                    <div id="bodypartTable2">
+                        <div class="buttonTableLeft">
+                            <input type="checkbox" name="muscles" id="triceps" class="vis-hidden" value="Triceps">
+                            <label for="triceps" class="exerciseButton whiteButton">Triceps</label>
+                            <br>
+                            <input type="checkbox" name="muscles" id="biceps" class="vis-hidden" value="Biceps">
+                            <label for="biceps" id="exercisebiceps" class="exerciseButton whiteButton">Biceps</label>
+                            <br>
+                            <input type="checkbox" name="muscles" id="back" class="vis-hidden" value="Back">
+                            <label for="back" id="exerciseback" class="exerciseButton whiteButton">Back</label>
+                            <br>
+                            <input type="checkbox" name="muscles" id="glutes" class="vis-hidden" value="Glutes">
+                            <label for="glutes" id="exerciseglutes" class="exerciseButton whiteButton">Glutes</label>
+                            <br>
+                            <input type="checkbox" id="lower-legs" name="muscles" class="vis-hidden" value="Lower Legs">
+                            <label for="lower-legs" id="exerciselowerlegs" class="exerciseButton whiteButton">Lower Legs</label>
+                        </div>
+                        <div class="buttonTableMiddle">
+                            <input type="checkbox" name="muscles" id="cardio" class="vis-hidden" value="Cardio">
+                            <label for="cardio" class="exerciseButton whiteButton">Cardio</label>
+                        </div>
+                        <div class="buttonTableRight">
+                            <input type="checkbox" name="muscles" id="shoulders" class="vis-hidden" value="Shoulders">
+                            <label for="shoulders" class="exerciseButton whiteButton">Shoulders</label>
+                            <br>
+                            <input type="checkbox" name="muscles" id="chest" class="vis-hidden" value="Chest">
+                            <label for="chest" id="exercisechest" class="exerciseButton whiteButton">Chest</label>
+                            <br>
+                            <input type="checkbox" name="muscles" id="forearm" class="vis-hidden" value="Forearm">
+                            <label for="forearm" id="exerciseforearms" class="exerciseButton whiteButton">Forearms</label>
+                            <br>
+                            <input type="checkbox" name="muscles" id="abs" class="vis-hidden" value="Abs">
+                            <label for="abs" id="exerciseabs" class="exerciseButton whiteButton">Abs</label>
+                            <br>
+                            <input type="checkbox" name="muscles" id="upper-legs" class="vis-hidden" value="Upper Legs">
+                            <label for="upper-legs" id="exerciseupperlegs" class="exerciseButton whiteButton">Upper legs</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="equipment col-lg-7">
+                    <h4>What equipment do you have access to?</h4><br>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="bands" value="Bands" />
+                            <label for="bands"><img src="./static/images/bands.png">Bands</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="barbell" value="Barbell" />
+                            <label for="barbell"><img src="./static/images/barbell.png">Barbell</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="bench" value="Bench" />
+                            <label for="bench"><img src="./static/images/bench.png">Bench</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="dumbbell" value="Dumbbell" />
+                            <label for="dumbbell"><img src="./static/images/dumbells.png">Dumbells</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="curl" value="Ez Curl Bar" />
+                            <label for="curl"><img src="./static/images/curl.png">EZ Curl Bar</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="ball" value="Exercise Ball" />
+                            <label for="ball"><img src="./static/images/ball.png">Exercise Ball</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="kettlebell" value="Kettlebell" />
+                            <label for="kettlebell"><img src="./static/images/kettlebell.png">Kettlebell</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="pull" value="Pullup Bar" />
+                            <label for="pull"><img src="./static/images/pullup.png">Pullup Bar</label>
+                        </div>
+                        <div class="col-lg-4">
+                            <input type="checkbox" name="equipment" id="plate" value="Weight Plate" />
+                            <label for="plate"><img src="./static/images/plate.png">Weight Plate</label>
+                        </div>
+                    </div>
+                </div>
 
-                {% if data %}
+                <div style="font-size: 20px; font-weight: bolder; margin-top: 20px;" class="col-lg-12">
+                    <input type="checkbox" name="routine" value=1> I want a full workout set (Routine for 1 day)<br>
+                </div>
+
+                <div style="font-size:20px; font-weight:bolder; margin-bottom: 20px;" class="col-lg-12">
+                    <br><p>Select Difficulty of Routine:</p>
+                    <input type="radio" name="difficulty" value=0> Beginner
+                    <input type="radio" name="difficulty" value=1> Moderate
+                    <input type="radio" name="difficulty" value=2> Advanced
+                </div>
+
+                <div class="col-lg-12">
+                    <button type="submit" class="btn btn-info"> Go! </button>
+                </div>
+            </form>
+
+            <form class="form-inline global-search col-lg-12">
+                <div class="form-group">
+                    {% if output_message %}
+                        {% if not routine %}
+                            <h1>Search Query: {{output_message}}</h1>
+                            <br>
+                        {% else %}
+                                <h1>Your routine for: {{output_message}}</h1>
+                                <br>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+
+        {% if not routine %}
+            {% if data %}
+                {% for d in data %}
+                <div class="container unordered">
+                    <div class="row justify-content-lg-center output unordered">
+                        <h2>{{d['name']}}</h2>
+                        <h3>Average User Score: {{d['rating']}}
+                            <div class="star-ratings-css" title = "{{d['rating']}}%">
+                                <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
+                                <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                            </div>
+                        </h3>
+                        <div class="col-lg-6">
+                            {% if d['image'] %}
+                                {% for i in d['image'] %}
+                                    <img class="exercises" src="{{i}}">
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-4">
+                            {% if d['muscles'] %}
+                                <h4>Muscle Groups</h4>
+                                {% for m in d['muscles'] %}
+                                    <p> {{m}} </p>
+                                {% endfor %}
+                            {% endif %}
+                            {% if d['equipment'] %}
+                                <h4>Equipment Needed</h4>
+                                {% for e in d['equipment'] %}
+                                    <p> {{e}} </p>
+                                {% endfor %}
+                            {% endif %}
+                            {% if d['description'] %}
+                                <h4>Instructions</h4>
+                                <p>{{d['description']}}</p>
+                            {% endif %}
+
+                        </div>
+                        <div class="col-lg-2">
+                            {% if d['top5Routines'] %}
+                                <h4>Suggested routines that include the exercise</h4>
+                                {% for r in d['top5Routines'] %}
+                                    <a target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
+                                    <br>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+
+                {% for d in dataorder %}
+                <div style="display: none" class="container ordered">
+                    <div class="row justify-content-lg-center output ordered">
+                        <h2>{{d['name']}}</h2>
+                        <h3>Average User Score: {{d['rating']}}
+                            <div class="star-ratings-css" title = "{{d['rating']}}%">
+                                <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
+                                <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                                <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
+                            </div>
+                        </h3>
+                        <div class="col-lg-6">
+                            {% if d['image'] %}
+                                {% for i in d['image'] %}
+                                    <img class="exercises" src="{{i}}">
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                        <div class="col-lg-4">
+                            {% if d['muscles'] %}
+                                <h4>Muscle Groups</h4>
+                                {% for m in d['muscles'] %}
+                                    <p> {{m}} </p>
+                                {% endfor %}
+                            {% endif %}
+                            {% if d['equipment'] %}
+                                <h4>Equipment Needed</h4>
+                                {% for e in d['equipment'] %}
+                                    <p> {{e}} </p>
+                                {% endfor %}
+                            {% endif %}
+                            {% if d['description'] %}
+                                <h4>Instructions</h4>
+                                <p>{{d['description']}}</p>
+                            {% endif %}
+
+                        </div>
+                        <div class="col-lg-2">
+                            {% if d['top5Routines'] %}
+                                <h4>Suggested routines that include the exercise</h4>
+                                {% for r in d['top5Routines'] %}
+                                    <a target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
+                                    <br>
+                                {% endfor %}
+                            {% endif %}
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+            <!-- GENERATES ROUTINE -->
+        {% else %}
+            {% if data %}
+                <!-- <div class="routine output"> -->
                     {% for d in data %}
-                        <div class="row justify-content-lg-center output unordered">
-                            <h2>{{d['name']}}</h2>
-                            <h3>Average User Score: {{d['rating']}}
-                                <div class="star-ratings-css" title = "{{d['rating']}}%">
-                                    <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
-                                    <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                                    <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                                </div>
-                            </h3>
+                    <div class="container">
+                        <div id="exercise" class="col-lg-6">
+                            <h3 class = "col-lg-12">Exercise {{loop.index}}: {{d['name']}}</h3>
+                           {% if d['muscles'] %}
                             <div class="col-lg-6">
-                                {% if d['image'] %}
-                                    {% for i in d['image'] %}
-                                        <img class="exercises" src="{{i}}">
-                                    {% endfor %}
-                                {% endif %}
+                                <h5>Muscle Groups</h5>
+                                {% for m in d['muscles'] %}
+                                    <p> {{m}} </p>
+                                {% endfor %}
                             </div>
-                            <div class="col-lg-4">
-                                {% if d['muscles'] %}
-                                    <h4>Muscle Groups</h4>
-                                    {% for m in d['muscles'] %}
-                                        <p> {{m}} </p>
-                                    {% endfor %}
-                                {% endif %}
-                                {% if d['equipment'] %}
-                                    <h4>Equipment Needed</h4>
-                                    {% for e in d['equipment'] %}
-                                        <p> {{e}} </p>
-                                    {% endfor %}
-                                {% endif %}
-                                {% if d['description'] %}
-                                    <h4>Instructions</h4>
-                                    <p>{{d['description']}}</p>
-                                {% endif %}
-
-                            </div>
-                            <div class="col-lg-2">
-                                {% if d['top5Routines'] %}
-                                    <h4>Suggested routines that includes the exercise</h4>
-                                    {% for r in d['top5Routines'] %}
-                                        <a target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
-                                        <br>
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endfor %}
-
-                    {% for d in dataorder %}
-                        <div class="row justify-content-lg-center output ordered">
-                            <h2>{{d['name']}}</h2>
-                            <h3>Average User Score: {{d['rating']}}
-                                <div class="star-ratings-css" title = "{{d['rating']}}%">
-                                    <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
-                                    <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                                    <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
-                                </div>
-                            </h3>
+                            {% endif %}
+                            {% if d['equipment'] %}
                             <div class="col-lg-6">
-                                {% if d['image'] %}
-                                    {% for i in d['image'] %}
-                                        <img class="exercises" src="{{i}}">
-                                    {% endfor %}
-                                {% endif %}
+                                <h5>Equipment Needed</h5>
+                                {% for e in d['equipment'] %}
+                                    <p> {{e}} </p>
+                                {% endfor %}
                             </div>
-                            <div class="col-lg-4">
-                                {% if d['muscles'] %}
-                                    <h4>Muscle Groups</h4>
-                                    {% for m in d['muscles'] %}
-                                        <p> {{m}} </p>
-                                    {% endfor %}
-                                {% endif %}
-                                {% if d['equipment'] %}
-                                    <h4>Equipment Needed</h4>
-                                    {% for e in d['equipment'] %}
-                                        <p> {{e}} </p>
-                                    {% endfor %}
-                                {% endif %}
-                                {% if d['description'] %}
-                                    <h4>Instructions</h4>
-                                    <p>{{d['description']}}</p>
-                                {% endif %}
-
+                            {% endif %}
+                            <div class="col-lg-12">
+                                <button id="{{loop.index}}" onclick="dropdown(this.id)">
+                                    Click for instructions
+                                </button>
                             </div>
-                            <div class="col-lg-2">
-                                {% if d['top5Routines'] %}
-                                    <h4>Suggested routines that includes the exercise</h4>
-                                    {% for r in d['top5Routines'] %}
-                                        <a target="_blank" href="{{r['routineURL']}}">{{r['routineName']}}</a>
-                                        <br>
-                                    {% endfor %}
-                                {% endif %}
-                            </div>
-                        </div>
-                    {% endfor %}
-                {% endif %}
-            {% else %}
-                {% if output_message %}
-                    <h1>Your routine for: {{output_message}}</h1>
-                {% endif %}
-                {% if data %}
-                    <div class="routine output">
-                        {% for d in data %}
-                            <div id="exercise" class="col-lg-6">
-                                <h3 class = "col-lg-12">Exercise {{loop.index}}.) {{d['name']}}</h3>
-                               {% if d['muscles'] %}
-                                <div class="col-lg-6">
-                                    <h5>Muscle Groups</h5>
-                                    {% for m in d['muscles'] %}
-                                        <p> {{m}} </p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
-                                {% if d['equipment'] %}
-                                <div class="col-lg-6">
-                                    <h5>Equipment Needed</h5>
-                                    {% for e in d['equipment'] %}
-                                        <p> {{e}} </p>
-                                    {% endfor %}
-                                </div>
-                                {% endif %}
+                            <div id = "Instructions{{loop.index}}" hidden="true">
                                 <div class="col-lg-12">
-                                    <button id="{{loop.index}}" onclick="dropdown(this.id)">
-                                        Click for instructions
-                                    </button>
-                                </div>
-                                <div id = "Instructions{{loop.index}}" hidden="true">
-                                    <div class="col-lg-12">
+                                    {% if d['image'] %}
+                                    <div class="col-lg-6">
                                         {% if d['image'] %}
-                                        <div class="col-lg-6">
-                                            {% if d['image'] %}
-                                                {% for i in d['image'] %}
-                                                    <img class="exercises" src="{{i}}">
-                                                {% endfor %}
-                                            {% endif %}
-                                        </div>
+                                            {% for i in d['image'] %}
+                                                <img class="exercises" src="{{i}}">
+                                            {% endfor %}
                                         {% endif %}
-                                        <div class="col-lg-6">
-                                            <h4>Instructions</h4>
-                                            <p>{{d['description']}}</p>
-                                        </div>
+                                    </div>
+                                    {% endif %}
+                                    <div class="col-lg-6">
+                                        <h4>Instructions</h4>
+                                        <p>{{d['description']}}</p>
                                     </div>
                                 </div>
                             </div>
-                        {% endfor %}
+                        </div>
                     </div>
-                {% endif %}
+                    {% endfor %}
+                <!-- </div> -->
             {% endif %}
-        </div>
+        {% endif %}
+        <!-- </div> -->
     </body>
     <script type="text/javascript">
         function dropdown(id){

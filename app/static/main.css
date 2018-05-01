@@ -56,9 +56,6 @@
   width: 250px;
   height: 250px;
 }
-h2, h4 {
-	font-weight: bolder;
-}
 
 /*Simple + Advanced Page Stuff*/
 body {
@@ -70,6 +67,20 @@ body {
 }
 
 .header {
+  background-color: #fff;
+  background-color: rgba(255,255,255, 0.85);
+  margin-bottom: 10px;
+  border: 2px solid black;
+}
+
+
+h4 {
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+.content {
+  text-align: center;
   background-color: #fff;
   background-color: rgba(255,255,255, 0.85);
   margin-bottom: 10px;

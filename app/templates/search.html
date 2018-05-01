@@ -7,20 +7,7 @@
     </head>
 
     <script>
-        var getUrlParameter = function getUrlParameter(sParam) {
-            var sPageURL = decodeURIComponent(window.location.search.substring(1)),
-                sURLVariables = sPageURL.split('&'),
-                sParameterName,
-                i;
 
-            for (i = 0; i < sURLVariables.length; i++) {
-                sParameterName = sURLVariables[i].split('=');
-
-                if (sParameterName[0] === sParam) {
-                    return sParameterName[1] === undefined ? true : sParameterName[1];
-                }
-            }
-        };
         window.onload = function() {
             autocomplete(document.getElementById("input"), {{autocomplete|tojson}});
 
@@ -60,7 +47,7 @@
 
     <body>
 
-        <div class="header">
+        <div class="header" style="margin-bottom: 10px;">
             <form class="form-inline global-search">
                 <h1 id="heading">
                     Exercise Planner
@@ -69,19 +56,19 @@
                 <p class="links"><a target="_blank" href="https://exercise-planner1.herokuapp.com/">Prototype 1</a></p>
                 <br>
                 <p class="links"><a target="_blank" href="https://exercise-planner1-v2.herokuapp.com/">Prototype 2</a></p>
-
-                <br><br>
+                <br>
                 <p class="links"><a class="search-link" href="{{ url_for('irsystem.advanced') }}">Advanced Search</a></p>
+                <br><br>
                 <div class="form-group">
                     <div class="autocomplete">
-                        <input autocomplete="off" id="input" type="text" name="search" class="form-control" placeholder="Example: core workouts">
+                        <input autocomplete="off" id="input" type="text" name="search" class="form-control" placeholder="Example: Cable Decline Press">
                     </div>
                 </div>
                 <button type="submit" class="btn btn-info"> Go! </button> 
                 <div> 
                     <br>
                 <label class="switch">
-                   <input id="order" type="checkbox"></button>
+                   <input id="order" type="checkbox">
                   <span class="slider round"></span> 
                 </label>
                 Order by Rating

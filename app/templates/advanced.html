@@ -46,7 +46,6 @@
     </script>
 
     <body>
-
         <div class="content col-lg-12">
             <form class="form-inline global-search">
                 <h1 id="heading">
@@ -65,10 +64,10 @@
                     </div>
                 </div>
 
-                <div id="switch"> 
+                <div> 
                     <br>
                     <label class="switch">
-                        <input id="order" type="checkbox"></button>
+                        <input id="order" type="checkbox">
                         <span class="slider round"></span> 
                     </label>
                     Order by Rating
@@ -186,8 +185,8 @@
                             <h1>Search Query: {{output_message}}</h1>
                             <br>
                         {% else %}
-                                <h1>Your routine for: {{output_message}}</h1>
-                                <br>
+                            <h1>Your routine for: {{output_message}}</h1>
+                            <br>
                         {% endif %}
                     {% endif %}
                 </div>

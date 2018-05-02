@@ -18,14 +18,11 @@
   border: none
 }
 
-.muscles {
-  float: left;
-}
 .equipment {
   width: -moz-calc(100% - 920px);
   width: -webkit-calc(100% - 920px);
   width: calc(100% - 920px);
-  float: right;
+/*  float: right;*/
   margin-right: 130px;
 }
 .equipment label {
@@ -71,6 +68,15 @@ body {
   background-color: rgba(255,255,255, 0.95);
   margin-bottom: 10px;
   border: 2px solid black;
+}
+
+#credit{
+  background-color: #fff;
+  background-color: rgba(255,255,255, 0.95);
+  margin-bottom: 10px;
+  border: 2px solid black;
+  text-align:center;
+  font-size:20px;
 }
 
 

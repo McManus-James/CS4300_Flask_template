@@ -1,0 +1,11 @@
+Exercise Planner - Darien Lin (dl724), Faadhil Moheed (fm363), James McManus (jjm439), Jatin Bharwani (jsb399), Kristian Langholm (krl38)
+
+ALL IMAGES AND BASE DATA
+Property of: https://www.jefit.com/ 
+
+Autocomplete Functionality
+Adapted from: https://www.w3schools.com/howto/howto_js_autocomplete.asp
+
+Star Rating
+Adapted from: https://codepen.io/Bluetidepro/pen/GkpEa
+

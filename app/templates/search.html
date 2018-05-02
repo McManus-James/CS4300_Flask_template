@@ -1,3 +1,4 @@
+<!-- SEE THE sources.txt FILE FOR A LIST OF ALL SOURCES -->
 <html>
     <head>
         <link rel="stylesheet" href="/static/bootstrap.min.css">
@@ -47,7 +48,14 @@
 
     <body>
 
+        <div id="credit">
+            <p>Darien Lin (dl724), Faadhil Moheed (fm363), James McManus (jjm439), Jatin Bharwani (jsb399), Kristian Langholm (krl38)</p>
+            <p>All content on the site is used solely for academic purposes</p>
+            <p>All images and base data are the property of jefit.com</p>
+        </div>
+
         <div class="header" style="margin-bottom: 10px;">
+
             <form class="form-inline global-search">
                 <h1 id="heading">
                     Exercise Planner
@@ -95,7 +103,6 @@
                     <h2>{{d['name']}}</h2>
                     <h3>Average User Score: {{"No User Ratings" if d['rating'] == 0 else '{0:.2f}'.format(d['rating'])}}
                         <div class="star-ratings-css" title = "{{d['rating']}}%">
-                            <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
                             <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                             <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                         </div>
@@ -147,7 +154,6 @@
                     <h2>{{d['name']}}</h2>
                     <h3>Average User Score: {{"No User Ratings" if d['rating'] == 0 else '{0:.2f}'.format(d['rating'])}}
                         <div class="star-ratings-css" title = "{{d['rating']}}%">
-                            <!-- Credits to: https://codepen.io/Bluetidepro/pen/GkpEa-->
                             <div class="star-ratings-css-top" style="width: {{d['rating']}}%"><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                             <div class="star-ratings-css-bottom" ><span>★</span><span>★</span><span>★</span><span>★</span><span>★</span></div>
                         </div>

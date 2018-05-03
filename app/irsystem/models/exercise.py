@@ -18,7 +18,9 @@ class Exercise:
 	"gluteus":"glutes glute","glute":"glutes","glutes":"glute",
 	"bicep":"biceps","biceps":"bicep","bi":"biceps bicep","bis":"biceps bicep",
 	"trapezius":"traps trap","traps":"trap","trap":"traps",
-	"tricep":"triceps","triceps":"tricep","tri":"triceps tricep","tris":"triceps tricep"}
+	"tricep":"triceps","triceps":"tricep","tri":"triceps tricep","tris":"triceps tricep",
+	"barbell":"barbells","barbells":"barbell",
+	"dumbbell":"dumbbells","dumbbells":"dumbbell"}
 
 	@classmethod 
 	def expanded_query(self, query):

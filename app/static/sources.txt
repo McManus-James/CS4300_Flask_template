@@ -1,0 +1,21 @@
+Exercise Planner - Darien Lin (dl724), Faadhil Moheed (fm363), James McManus (jjm439), Jatin Bharwani (jsb399), Kristian Langholm (krl38)
+
+ALL MARKED IMAGES AND BASE DATA
+Property of: https://www.jefit.com/ 
+
+Autocomplete Functionality
+Adapted from: https://www.w3schools.com/howto/howto_js_autocomplete.asp
+
+Star Rating
+Adapted from: https://codepen.io/Bluetidepro/pen/GkpEa
+
+Equipment Image Sources
+Bands: https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQqtaRMdP-b3IKxsT5CmiBxoPLELdoF-addx42u9auw1WyC-VvrYg
+Barbell: https://www.dickssportinggoods.com/p/ethos-205-lbolympic-rubber-bumper-plate-set-17au6uths205lbbmpbrb/17au6uths205lbbmpbrb
+Bench: https://www.dickssportinggoods.com/products/weight-benches.jsp
+Dumbells: https://www.walmart.com/ip/CAP-Barbell-Neoprene-Dumbbell-Single/47916646
+EZ Curl Bar: https://www.ironcompany.com/obzs-30-stainless-steel-olympic-curl-bar
+Exercise Ball: https://www.amazon.com/Gaiam-Total-Body-Balance-Ball/dp/B00BI7SOJI
+Kettlebell: https://www.amazon.com/Rep-Kettlebells-Conditioning-Fitness-Cross-Training/dp/B00NLMCG6A
+Pullup Bar: https://www.lifestyleupdated.com/shop/fitness-sports/strength-equipment/pull-up-bars/rubberbanditz-removable-safe-padded-standing-pull-up-chin-up-bar/
+Weight Plate: http://www.ebay.com/bhp/weight-plates
